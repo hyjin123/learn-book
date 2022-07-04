@@ -3,8 +3,8 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        Navbar
+      <a class="navbar-brand" href="/">
+        LearnBook
       </a>
       <button
         class="navbar-toggler"
@@ -27,7 +27,12 @@ const Navbar = () => {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              Link
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/explore">
+              Explore
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -54,11 +59,6 @@ const Navbar = () => {
                 Something else here
               </a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">
-              Disabled
-            </a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
