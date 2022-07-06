@@ -5,7 +5,7 @@ import Navbar from "./Navigation/Navbar";
 import Explore from "./MainPage/Explore";
 import Profile from "./MainPage/Profile";
 import Login from "./Login/Login";
-import Register from "./Register/Register";
+import Register from "./Login/Register";
 
 function App() {
   return (

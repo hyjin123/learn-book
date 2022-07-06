@@ -1,8 +1,10 @@
 import React from "react";
+import axios from "axios";
+import "./register.css";
 
-const Register = () => {
+const Register = (props) => {
   return (
-    <form>
+    <form className="form">
       <div class="form-group">
         <label for="exampleInputPassword1">First Name</label>
         <input

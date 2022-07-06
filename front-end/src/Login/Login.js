@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <form>
+    <form className="form">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input
