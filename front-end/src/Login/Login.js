@@ -1,14 +1,42 @@
 import React from "react";
+import axios from "axios";
+import "./register.css";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
+  // navigating between pages using react router
+  const navigate = useNavigate();
+  // when user clicks login
+  const onLogin = (event) => {
+    //prevents default action
+    event.preventDefault();
+    //save the form data in variables
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    //make an axios request to the backend to validate the login information
+    axios
+      .post("/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log(res.data);
+        // save the token to the local storage of the device
+        const token = res.data.accessToken;
+        localStorage.setItem("jwtoken", token);
+        // re-direct user to home once logged in
+        navigate("/");
+      })
+      .catch((err) => console.log("this is an error man "));
+  };
   return (
-    <form className="form">
+    <form className="form" onSubmit={onLogin}>
       <div className="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="email">Email address</label>
         <input
           type="email"
           className="form-control"
-          id="exampleInputEmail1"
+          id="email"
           aria-describedby="emailHelp"
           placeholder="Enter email"
         />
@@ -17,11 +45,11 @@ const Login = () => {
         </small>
       </div>
       <div className="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="password">Password</label>
         <input
           type="password"
           className="form-control"
-          id="exampleInputPassword1"
+          id="password"
           placeholder="Password"
         />
       </div>

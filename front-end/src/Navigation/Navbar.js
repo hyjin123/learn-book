@@ -1,6 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  // navigating between pages using react router
+  const navigate = useNavigate();
+
+  // When a user clicks logout
+  const logout = (event) => {
+    event.preventDefault();
+    // reset the localstorage jwtoken to an empty string
+    localStorage.setItem("jwtoken", "", { maxAge: 1 });
+    // navigate to the login page
+    navigate("/login");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
@@ -33,6 +45,11 @@ const Navbar = () => {
           <li className="nav-item active">
             <a className="nav-link" href="/register">
               Register <span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="nav-item active">
+            <a className="nav-link" onClick={logout}>
+              Logout <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
