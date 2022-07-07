@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   // navigating between pages using react router
   const navigate = useNavigate();
+
+  // set user if there is one so that navbar is displayed accordingly if the user is logged in or no user is logged in
+  const user = props.user;
+  const setUser = props.setUser;
+  const token = localStorage.getItem("jwtoken");
+  useEffect(() => {
+    setUser(token);
+  }, [token]);
 
   // When a user clicks logout
   const logout = (event) => {
@@ -32,37 +40,49 @@ const Navbar = () => {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home <span className="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item active">
-            <a className="nav-link" href="/login">
-              Login <span className="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item active">
-            <a className="nav-link" href="/register">
-              Register <span className="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item active">
-            <a className="nav-link" onClick={logout}>
-              Logout <span className="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/profile">
-              Profile
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/explore">
-              Explore
-            </a>
-          </li>
-          <li className="nav-item dropdown">
+          {user && (
+            <li className="nav-item active">
+              <a className="nav-link" href="/">
+                Home <span className="sr-only">(current)</span>
+              </a>
+            </li>
+          )}
+          {!user && (
+            <li className="nav-item active">
+              <a className="nav-link" href="/login">
+                Login <span className="sr-only">(current)</span>
+              </a>
+            </li>
+          )}
+          {!user && (
+            <li className="nav-item active">
+              <a className="nav-link" href="/register">
+                Register <span className="sr-only">(current)</span>
+              </a>
+            </li>
+          )}
+          {user && (
+            <li className="nav-item">
+              <a className="nav-link" href="/profile">
+                Profile
+              </a>
+            </li>
+          )}
+          {user && (
+            <li className="nav-item">
+              <a className="nav-link" href="/explore">
+                Explore
+              </a>
+            </li>
+          )}
+          {user && (
+            <li className="nav-item active">
+              <a className="nav-link" onClick={logout}>
+                Logout <span className="sr-only">(current)</span>
+              </a>
+            </li>
+          )}
+          {/* <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               href="#"
@@ -86,7 +106,7 @@ const Navbar = () => {
                 Something else here
               </a>
             </div>
-          </li>
+          </li> */}
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <input
