@@ -3,55 +3,72 @@ import axios from "axios";
 import "./register.css";
 
 const Register = (props) => {
+  // when user registers an account with all their information
+  const onRegister = (event) => {
+    //prevents default action
+    event.preventDefault();
+    //save the form data in variables
+    const first_name = event.target.first_name.value;
+    const last_name = event.target.last_name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    //make an axios request to the backend to save this value to the db
+    axios
+      .post("/register", {
+        first_name,
+        last_name,
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log("this is an error man "));
+  };
+
   return (
-    <form className="form">
-      <div class="form-group">
-        <label for="exampleInputPassword1">First Name</label>
+    <form className="form" onSubmit={onRegister}>
+      <div className="form-group">
+        <label for="first_name">First Name</label>
         <input
-          type="first-name"
-          class="form-control"
-          id="first-name"
+          type="text"
+          className="form-control"
+          id="first_name"
           placeholder="First Name"
         />
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Last Name</label>
+      <div className="form-group">
+        <label for="last_name">Last Name</label>
         <input
-          type="last-name"
-          class="form-control"
-          id="last-name"
+          type="text"
+          className="form-control"
+          id="last_name"
           placeholder="Last Name"
         />
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+      <div className="form-group">
+        <label for="email">Email address</label>
         <input
           type="email"
-          class="form-control"
-          id="exampleInputEmail1"
+          className="form-control"
+          id="email"
           aria-describedby="emailHelp"
           placeholder="Enter email"
         />
-        <small id="emailHelp" class="form-text text-muted">
+        <small id="emailHelp" className="form-text text-muted">
           We'll never share your email with anyone else.
         </small>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+      <div className="form-group">
+        <label for="password">Password</label>
         <input
           type="password"
-          class="form-control"
-          id="exampleInputPassword1"
+          className="form-control"
+          id="password"
           placeholder="Password"
         />
       </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1">
-          Check me out
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Register
       </button>
     </form>

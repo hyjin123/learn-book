@@ -12,17 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const resourcesRouter = require("./routes/resources");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 
 // Routes
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/resources", resourcesRouter);
-app.use("/login", loginRouter);
-app.use("/register", registerRouter);
+app.use("/resources", resourcesRouter(db));
+app.use("/login", loginRouter(db));
+app.use("/register", registerRouter(db));
 
 module.exports = app;
