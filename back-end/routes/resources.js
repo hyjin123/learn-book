@@ -3,8 +3,14 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", function (req, res) {
-    // save the query into a date variable, 2021-01-20
-    res.render("index", { title: "Express" });
+    // retrieve the user id
+    const userId = req.body.id;
+    // query the topics for this particular user
+    db.query(`SELECT * FROM topics WHERE user_id = $1;`, [userId])
+      .then((data) => {
+        console.log(data.rows);
+      })
+      .catch((err) => console.log(err));
   });
   return router;
 };

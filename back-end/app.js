@@ -15,10 +15,12 @@ app.use(express.static(path.join(__dirname, "public")));
 const resourcesRouter = require("./routes/resources");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
+const topicsRouter = require("./routes/topics");
 
 // Routes
 app.use("/resources", resourcesRouter(db));
 app.use("/login", loginRouter(db));
 app.use("/register", registerRouter(db));
+app.use("/topics", topicsRouter(db));
 
 module.exports = app;
