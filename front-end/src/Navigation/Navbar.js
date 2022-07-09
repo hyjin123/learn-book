@@ -6,12 +6,12 @@ const Navbar = (props) => {
   const navigate = useNavigate();
 
   // set user if there is one so that navbar is displayed accordingly if the user is logged in or no user is logged in
-  const user = props.user;
-  const setUser = props.setUser;
-  const token = localStorage.getItem("jwtoken");
+  const token = props.token;
+  const setToken = props.setToken;
+  const token1 = localStorage.getItem("jwtoken");
   useEffect(() => {
-    setUser(token);
-  }, [token]);
+    setToken(token1);
+  }, [token1]);
 
   // When a user clicks logout
   const logout = (event) => {
@@ -40,42 +40,42 @@ const Navbar = (props) => {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          {user && (
+          {token && (
             <li className="nav-item active">
               <a className="nav-link" href="/">
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
           )}
-          {!user && (
+          {!token && (
             <li className="nav-item active">
               <a className="nav-link" href="/login">
                 Login <span className="sr-only">(current)</span>
               </a>
             </li>
           )}
-          {!user && (
+          {!token && (
             <li className="nav-item active">
               <a className="nav-link" href="/register">
                 Register <span className="sr-only">(current)</span>
               </a>
             </li>
           )}
-          {user && (
+          {token && (
             <li className="nav-item">
               <a className="nav-link" href="/profile">
                 Profile
               </a>
             </li>
           )}
-          {user && (
+          {token && (
             <li className="nav-item">
               <a className="nav-link" href="/explore">
                 Explore
               </a>
             </li>
           )}
-          {user && (
+          {token && (
             <li className="nav-item active">
               <a className="nav-link" onClick={logout}>
                 Logout <span className="sr-only">(current)</span>

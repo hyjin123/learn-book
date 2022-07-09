@@ -9,17 +9,23 @@ import Login from "./Login/Login";
 import Register from "./Login/Register";
 
 function App() {
-  const [user, setUser] = useState("");
-  console.log(user);
+  const [token, setToken] = useState("");
+  const [user, setUser] = useState({});
   return (
     <div>
-      <Navbar user={user} setUser={setUser} />
+      <Navbar token={token} setToken={setToken} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage token={token} user={user} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={<Login user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/register"
+          element={<Register user={user} setUser={setUser} />}
+        />
       </Routes>
     </div>
   );

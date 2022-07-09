@@ -22,9 +22,12 @@ module.exports = (db) => {
           res.status(400).send({ message: "Invalid Email, it does not exist" });
         } else if (bcrypt.compareSync(password1, password2)) {
           //if the password matches using bcrypt
-          const user = { id, first_name, last_name, email };
-          const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-          res.json({ accessToken, user });
+          const userInfo = { id, first_name, last_name, email };
+          const accessToken = jwt.sign(
+            userInfo,
+            process.env.ACCESS_TOKEN_SECRET
+          );
+          res.json({ accessToken, userInfo });
         } else {
           res
             .status(400)

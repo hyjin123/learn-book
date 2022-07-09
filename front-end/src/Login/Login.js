@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   // navigating between pages using react router
   const navigate = useNavigate();
+  // props
+  const { user, setUser } = props;
   // when user clicks login
   const onLogin = (event) => {
     //prevents default action
@@ -23,6 +25,9 @@ const Login = (props) => {
         console.log(res.data);
         // save the token to the local storage of the device
         const token = res.data.accessToken;
+        // save the user info into state
+        setUser(res.data.userInfo);
+        console.log(res.data.userInfo);
         localStorage.setItem("jwtoken", token);
         // re-direct user to home once logged in
         navigate("/");
