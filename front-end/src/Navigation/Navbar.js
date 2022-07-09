@@ -18,6 +18,7 @@ const Navbar = (props) => {
     event.preventDefault();
     // reset the localstorage jwtoken to an empty string
     localStorage.setItem("jwtoken", "", { maxAge: 1 });
+    localStorage.setItem("userinfo", "", { maxAge: 1 });
     // navigate to the login page
     navigate("/login");
   };

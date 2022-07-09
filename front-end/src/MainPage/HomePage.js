@@ -5,13 +5,15 @@ const HomePage = (props) => {
   // state for the user's topics
   const [topics, setTopics] = useState([]);
   // destructure props
-  const { token, user } = props;
-  console.log(user);
+  const { token } = props;
+  // get the user ID from the local storage
+  const userInfo = localStorage.getItem("userinfo");
+  console.log(userInfo);
   // retrive the topics for a specific user in the database
   useEffect(() => {
     axios
       .get("/topics", {
-        user,
+        userInfo,
       })
       .then((res) => {
         console.log(res.data);
@@ -26,7 +28,7 @@ const HomePage = (props) => {
     // send an axios post request to input the new topic into the database
     axios
       .post("/topics", {
-        user,
+        userInfo,
         topic,
       })
       .then((res) => console.log(res.data))

@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Register = (props) => {
   // navigating between pages using react router
   const navigate = useNavigate();
-  // props
-  const { user, setUser } = props;
   // when user registers an account with all their information
   const onRegister = (event) => {
     //prevents default action
@@ -29,9 +27,9 @@ const Register = (props) => {
         console.log(res.data);
         // save the token to the local storage of the device
         const token = res.data.accessToken;
-        // save the user info into state
-        console.log(res.data.userInfo);
-        setUser(res.data.userInfo);
+        // save the user info into local storage (as saving it in state doesn't work on refresh)
+        const userInfo = res.data.userInfo.id;
+        localStorage.setItem("userinfo", userInfo);
         localStorage.setItem("jwtoken", token);
         // re-direct user to home once logged in
         navigate("/");
