@@ -7,19 +7,22 @@ const HomePage = (props) => {
   // destructure props
   const { token } = props;
   // get the user ID from the local storage
-  const userInfo = localStorage.getItem("userinfo");
-  console.log(userInfo);
+  const userInfo = parseFloat(localStorage.getItem("userinfo"));
   // retrive the topics for a specific user in the database
   useEffect(() => {
     axios
       .get("/topics", {
-        userInfo,
+        params: {
+          userInfo,
+        },
       })
       .then((res) => {
         console.log(res.data);
+        const topicsRetrieved = res.data;
+        setTopics(topicsRetrieved);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [userInfo]);
   // handles when user submits a topic, sends the data to the backend and saves the topic in the database
   const onSubmit = (event) => {
     event.preventDefault();
@@ -37,6 +40,7 @@ const HomePage = (props) => {
   return (
     <div>
       <h2 className="homepage">My Resources</h2>
+      <div>{topics}</div>
       <form className="form-inline" onSubmit={onSubmit}>
         <div className="form-group">
           <label for="topic">Topic</label>

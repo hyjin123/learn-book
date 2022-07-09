@@ -3,19 +3,20 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", function (req, res) {
-    // retrieve the user id
-    const userId = req.body.id;
+    // retrieve the user id and turn it from a string to a number
+    const userId = parseFloat(req.query.userInfo);
     // query the topics for this particular user
     db.query(`SELECT * FROM topics WHERE user_id = $1;`, [userId])
       .then((data) => {
-        console.log(data.rows);
+        const topics = data.rows;
+        res.json({ topics });
       })
       .catch((err) => console.log(err));
   });
 
   router.post("/", function (req, res) {
     // retrieve the user id and topic
-    const userId = req.body.user.id;
+    const userId = req.body.userInfo;
     const topic = req.body.topic;
     // query the topics for this particular user
     db.query(
