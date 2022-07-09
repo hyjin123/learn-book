@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Topics from "./Topics";
 
 const HomePage = (props) => {
   // state for the user's topics
@@ -17,8 +18,7 @@ const HomePage = (props) => {
         },
       })
       .then((res) => {
-        console.log(res.data);
-        const topicsRetrieved = res.data;
+        const topicsRetrieved = res.data.topics;
         setTopics(topicsRetrieved);
       })
       .catch((err) => console.log(err));
@@ -36,11 +36,19 @@ const HomePage = (props) => {
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
+    // refreshes the page whenever user inputs new topic
+    window.location.reload(false);
   };
+  console.log(topics);
+  // map through the topics and display a well formatted component for each of them
+  const formattedTopics = topics.map((topic) => {
+    return <Topics key={topic.id} topic={topic.name} />;
+  });
+
   return (
     <div>
       <h2 className="homepage">My Resources</h2>
-      <div>{topics}</div>
+      {formattedTopics}
       <form className="form-inline" onSubmit={onSubmit}>
         <div className="form-group">
           <label for="topic">Topic</label>
