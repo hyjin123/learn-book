@@ -36,7 +36,7 @@ const HomePage = (props) => {
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
-    // refreshes the page whenever user inputs new topic
+    // refreshes the page whenever user inputs new topic, so that the list is updated
     window.location.reload(false);
   };
   console.log(topics);
@@ -48,7 +48,7 @@ const HomePage = (props) => {
   return (
     <div>
       <h2 className="homepage">My Resources</h2>
-      {formattedTopics}
+      <div className="topics">{formattedTopics}</div>
       <form className="form-inline" onSubmit={onSubmit}>
         <div className="form-group">
           <label for="topic">Topic</label>
