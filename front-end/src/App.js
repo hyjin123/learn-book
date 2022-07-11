@@ -7,6 +7,7 @@ import Explore from "./MainPage/Explore";
 import Profile from "./MainPage/Profile";
 import Login from "./Login/Login";
 import Register from "./Login/Register";
+import Resources from "./MainPage/Resources";
 
 function App() {
   const [token, setToken] = useState("");
@@ -14,7 +15,9 @@ function App() {
     <div>
       <Navbar token={token} setToken={setToken} />
       <Routes>
-        <Route path="/" element={<HomePage token={token} />} />
+        <Route path="/home" element={<HomePage token={token} />}>
+          <Route path=":topic" element={<Resources />} />
+        </Route>
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />

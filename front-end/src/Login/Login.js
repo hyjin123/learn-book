@@ -28,7 +28,7 @@ const Login = (props) => {
         localStorage.setItem("userinfo", userInfo);
         localStorage.setItem("jwtoken", token);
         // re-direct user to home once logged in
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => console.log("this is an error man "));
   };

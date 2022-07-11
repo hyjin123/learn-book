@@ -1,11 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&family=Roboto:wght@300&display=swap");
+
+body {
+  font-family: "Kanit", sans-serif;
+}
 .topics {
   display: flex;
   flex-direction: row;
+  font-weight: 300;
+  text-decoration: none;
 }
 
 .topic {
-  border: 2px solid black;
-  border-radius: 8px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(84, 158, 19, 0.5);
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease 0s;
   padding: 10px;
   margin: 10px;
+}
+
+.topic:hover {
+  background-color: #2ee59d;
+  transform: translateY(-2px);
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }

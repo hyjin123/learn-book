@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Outlet } from "react-router";
 import Topics from "./Topics";
 
 const HomePage = (props) => {
   // state for the user's topics
   const [topics, setTopics] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState("");
   // destructure props
   const { token } = props;
   // get the user ID from the local storage
@@ -39,10 +41,16 @@ const HomePage = (props) => {
     // refreshes the page whenever user inputs new topic, so that the list is updated
     window.location.reload(false);
   };
-  console.log(topics);
+  console.log(selectedTopic);
   // map through the topics and display a well formatted component for each of them
   const formattedTopics = topics.map((topic) => {
-    return <Topics key={topic.id} topic={topic.name} />;
+    return (
+      <Topics
+        key={topic.id}
+        topic={topic.name}
+        setSelectedTopic={setSelectedTopic}
+      />
+    );
   });
 
   return (
@@ -59,6 +67,7 @@ const HomePage = (props) => {
           Submit
         </button>
       </form>
+      <Outlet context={[selectedTopic]} />
     </div>
   );
 };
