@@ -15,7 +15,9 @@ const Topics = (props) => {
   return (
     <div>
       <button className="topic" onClick={onSelect}>
-        <Link to={`/home/${topic}`}>{topic}</Link>
+        <Link className="topic1" to={`/home/${topic}`}>
+          {topic}
+        </Link>
       </button>
     </div>
   );

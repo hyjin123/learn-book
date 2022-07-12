@@ -30,3 +30,12 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.topic1 {
+  color: white;
+}
+
+.topic1:hover {
+  color: white;
+  text-decoration: none;
+}
