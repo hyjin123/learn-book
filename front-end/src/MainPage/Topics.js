@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Topics.css";
 
 const Topics = (props) => {
@@ -11,14 +11,19 @@ const Topics = (props) => {
     // change the state to the selected topic
     setSelectedTopic(topic);
   };
+  // add dash to all the spaces. If this is not done, the navLink active state does not work!! for some reason
+  const topicURL = topic.replaceAll(" ", "-");
 
   return (
-    <div>
-      <button className="topic" onClick={onSelect}>
-        <Link className="topic1" to={`/home/${topic}`}>
-          {topic}
-        </Link>
-      </button>
+    <div className="topic" onClick={onSelect}>
+      <NavLink
+        exact
+        className={({ isActive }) => (isActive ? "activeBtn" : "topic1")}
+        to={`/home/${topicURL}`}
+        end
+      >
+        {topic}
+      </NavLink>
     </div>
   );
 };
