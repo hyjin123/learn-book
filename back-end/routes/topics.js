@@ -36,12 +36,12 @@ module.exports = (db) => {
   router.post("/delete", function (req, res) {
     // retrieve the user id and topic
     const userId = req.body.userInfo;
-    const topic = req.body.topic;
+    const topic = req.body.selectedTopic;
     // query the topics for this particular user
-    db.query(
-      `INSERT INTO topics (user_id, name) VALUES ($1, $2) RETURNING name;`,
-      [userId, topic]
-    )
+    db.query(`DELETE FROM topics WHERE user_id=$1 AND name=$2 RETURNING id;`, [
+      userId,
+      topic,
+    ])
       .then((data) => {
         const topic = data.rows[0];
         res.json({ topic });
