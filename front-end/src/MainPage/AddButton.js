@@ -4,8 +4,12 @@ import "./Button.css";
 const AddButton = (props) => {
   const { onDelete } = props;
   // when user adds a resource
-  const onSubmit = (event) => {
+  const onAdd = (event) => {
     event.preventDefault();
+    // save the form info
+    console.log("hello");
+    const name = event.target.name.value;
+    console.log(event.target);
   };
 
   return (
@@ -44,8 +48,8 @@ const AddButton = (props) => {
               </button>
             </div>
             <div className="modal-body">
-              <form className="resource-form" onSubmit={onSubmit}>
-                <div className="form-group">
+              <form className="resource-form" id="form1" onSubmit={onAdd}>
+                <div className="mb-3">
                   <label for="name">Name</label>
                   <input
                     type="text"
@@ -53,13 +57,16 @@ const AddButton = (props) => {
                     id="name"
                     rows="3"
                   ></input>
+                </div>
+                <div className="mb-3">
                   <label for="description">Description</label>
                   <textarea
-                    type="description"
                     className="form-control"
-                    id="name"
+                    id="description"
                     rows="3"
                   ></textarea>
+                </div>
+                <div className="mb-3">
                   <label for="url">URL</label>
                   <input
                     type="text"
@@ -78,7 +85,12 @@ const AddButton = (props) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="submit"
+                form="form1"
+                className="btn btn-primary"
+                data-dismiss="modal"
+              >
                 Add
               </button>
             </div>
