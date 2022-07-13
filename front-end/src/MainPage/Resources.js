@@ -42,7 +42,7 @@ const Resources = (props) => {
       .catch((err) => console.log(err));
   };
 
-  // make the list of all the resources, map through them and display component for each resource
+  // make the list of all the resources, map through them and display EachResource component for each resource
   const resourceList = resources.map((resource) => {
     return (
       <EachResource
@@ -55,8 +55,6 @@ const Resources = (props) => {
   });
   return (
     <div>
-      <div>hello</div>
-      <div className="homepage">{selectedTopic}</div>
       <DeleteButton onDelete={onDelete} />
       {resourceList}
       <AddButton userInfo={userInfo} selectedTopic={selectedTopic} />

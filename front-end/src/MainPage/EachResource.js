@@ -1,4 +1,6 @@
 import React from "react";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
+import { Link } from "react-router-dom";
 
 const EachResource = (props) => {
   //  destructure props
@@ -9,6 +11,9 @@ const EachResource = (props) => {
       <div>{name}</div>
       <div>{description}</div>
       <div>{link}</div>
+      <div>
+        <LinkPreview url={link} width="35%" />
+      </div>
     </div>
   );
 };
