@@ -6,7 +6,7 @@ import Topics from "./Topics";
 const HomePage = (props) => {
   // state for the user's topics
   const [topics, setTopics] = useState([]);
-  const [selectedTopic, setSelectedTopic] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState(0);
   // destructure props
   const { token } = props;
   // get the user ID from the local storage
@@ -47,7 +47,8 @@ const HomePage = (props) => {
     return (
       <Topics
         key={topic.id}
-        topic={topic.name}
+        topicId={topic.id}
+        topicName={topic.name}
         setSelectedTopic={setSelectedTopic}
       />
     );

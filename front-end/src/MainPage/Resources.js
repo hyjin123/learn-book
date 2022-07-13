@@ -28,7 +28,7 @@ const Resources = (props) => {
     <div>
       <div className="homepage">{selectedTopic}</div>
       <DeleteButton onDelete={onDelete} />
-      <AddButton onDelete={onDelete} />
+      <AddButton userInfo={userInfo} selectedTopic={selectedTopic} />
     </div>
   );
 };

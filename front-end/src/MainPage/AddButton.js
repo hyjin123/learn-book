@@ -1,17 +1,30 @@
+import axios from "axios";
 import React from "react";
 import "./Button.css";
 
 const AddButton = (props) => {
-  const { onDelete } = props;
+  const { userInfo, selectedTopic } = props;
   // when user adds a resource
   const onAdd = (event) => {
     event.preventDefault();
     // save the form info
-    console.log("hello");
     const name = event.target.name.value;
-    console.log(name);
-    // refreshes the page whenever user deletes a topic, so that the list is updated
-    window.location.reload(false);
+    const description = event.target.description.value;
+    const url = event.target.url.value;
+    // make an axios request to add the new resource to the database
+    axios
+      .post("/resources/add", {
+        selectedTopic,
+        name,
+        description,
+        url,
+      })
+      .then((res) => {
+        console.log(res.data);
+        // refreshes the page whenever user adds a new resource, so that the list is updated
+        window.location.reload(false);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
