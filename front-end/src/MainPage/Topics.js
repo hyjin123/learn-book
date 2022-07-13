@@ -10,6 +10,8 @@ const Topics = (props) => {
     event.preventDefault();
     // change the state to the selected topic
     setSelectedTopic(topicId);
+    // store the selected topic in local storage as state doesn't persist in refresh
+    localStorage.setItem("topic", topicId);
   };
   // add dash to all the spaces. If this is not done, the navLink active state does not work!! for some reason
   const topicURL = topicName.replaceAll(" ", "-");
@@ -17,7 +19,6 @@ const Topics = (props) => {
   return (
     <div className="topic" onClick={onSelect}>
       <NavLink
-        exact
         className={({ isActive }) => (isActive ? "activeBtn" : "topic1")}
         to={`/home/${topicURL}`}
         end

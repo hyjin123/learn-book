@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+  // get all resources for a topic
   router.get("/", function (req, res) {
-    // retrieve the user id
-    const userId = req.body.id;
+    // retrieve the topic
+    const topic = req.query.topicId;
     // query the topics for this particular user
-    db.query(`SELECT * FROM topics WHERE user_id = $1;`, [userId])
+    db.query(`SELECT * FROM resources WHERE topic_id = $1;`, [topic])
       .then((data) => {
-        console.log(data.rows);
+        const resources = data.rows;
+        res.json({ resources });
       })
       .catch((err) => console.log(err));
   });
