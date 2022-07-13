@@ -9,7 +9,9 @@ const AddButton = (props) => {
     // save the form info
     console.log("hello");
     const name = event.target.name.value;
-    console.log(event.target);
+    console.log(name);
+    // refreshes the page whenever user deletes a topic, so that the list is updated
+    window.location.reload(false);
   };
 
   return (
@@ -48,8 +50,8 @@ const AddButton = (props) => {
               </button>
             </div>
             <div className="modal-body">
-              <form className="resource-form" id="form1" onSubmit={onAdd}>
-                <div className="mb-3">
+              <form className="resource-form" id="form" onSubmit={onAdd}>
+                <div className="form-group">
                   <label for="name">Name</label>
                   <input
                     type="text"
@@ -58,7 +60,7 @@ const AddButton = (props) => {
                     rows="3"
                   ></input>
                 </div>
-                <div className="mb-3">
+                <div className="form-group">
                   <label for="description">Description</label>
                   <textarea
                     className="form-control"
@@ -66,7 +68,7 @@ const AddButton = (props) => {
                     rows="3"
                   ></textarea>
                 </div>
-                <div className="mb-3">
+                <div className="form-group">
                   <label for="url">URL</label>
                   <input
                     type="text"
@@ -85,12 +87,7 @@ const AddButton = (props) => {
               >
                 Close
               </button>
-              <button
-                type="submit"
-                form="form1"
-                className="btn btn-primary"
-                data-dismiss="modal"
-              >
+              <button type="submit" form="form" className="btn btn-primary">
                 Add
               </button>
             </div>

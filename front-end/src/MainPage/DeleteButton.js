@@ -53,6 +53,7 @@ const DeleteButton = (props) => {
               <button
                 type="button"
                 className="btn btn-primary"
+                data-dismiss="modal"
                 onClick={onDelete}
               >
                 Delete
