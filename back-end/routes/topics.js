@@ -38,7 +38,7 @@ module.exports = (db) => {
     const userId = req.body.userInfo;
     const topic = req.body.selectedTopic;
     // query the topics for this particular user
-    db.query(`DELETE FROM topics WHERE user_id=$1 AND name=$2 RETURNING id;`, [
+    db.query(`DELETE FROM topics WHERE user_id=$1 AND id=$2 RETURNING id;`, [
       userId,
       topic,
     ])

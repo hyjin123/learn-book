@@ -56,8 +56,8 @@ const Resources = (props) => {
   return (
     <div>
       <DeleteButton onDelete={onDelete} />
-      {resourceList}
-      <AddButton userInfo={userInfo} selectedTopic={selectedTopic} />
+      <AddButton userInfo={userInfo} topicId={topicId} />
+      <div className="resource-list">{resourceList}</div>
     </div>
   );
 };

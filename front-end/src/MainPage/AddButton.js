@@ -3,7 +3,7 @@ import React from "react";
 import "./Button.css";
 
 const AddButton = (props) => {
-  const { userInfo, selectedTopic } = props;
+  const { userInfo, topicId } = props;
   // when user adds a resource
   const onAdd = (event) => {
     event.preventDefault();
@@ -14,7 +14,7 @@ const AddButton = (props) => {
     // make an axios request to add the new resource to the database
     axios
       .post("/resources/add", {
-        selectedTopic,
+        topicId,
         name,
         description,
         url,

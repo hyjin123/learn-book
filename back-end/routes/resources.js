@@ -17,7 +17,7 @@ module.exports = (db) => {
   // add a resource
   router.post("/add", function (req, res) {
     // retrieve the user id
-    const topic = req.body.selectedTopic;
+    const topic = req.body.topicId;
     const name = req.body.name;
     const description = req.body.description;
     const url = req.body.url;
