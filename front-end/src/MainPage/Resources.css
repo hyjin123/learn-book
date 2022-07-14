@@ -25,11 +25,32 @@
 }
 
 .each-resource-section {
-  margin-top: 60px;
-  overflow-wrap: break-word;
-  overflow: hidden;
+  margin: 60px 0;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .resource-list > * {
-  flex: 1;
+  flex: 0 0 20%;
+}
+
+.resource-delete-button {
+  width: 50%;
+  margin-top: 10px;
+}
+
+.icons {
+  align-self: end;
+  font-size: 25px;
+}
+
+.icon {
+  padding: 5px 10px;
+}
+
+.icon:hover {
+  cursor: pointer;
 }

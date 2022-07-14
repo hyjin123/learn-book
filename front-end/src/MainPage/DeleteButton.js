@@ -1,10 +1,11 @@
 import React from "react";
 import "./Button.css";
+import "./Resources.css";
 
 const DeleteTopicButton = (props) => {
   const { onDelete } = props;
   return (
-    <div className="resource-delete-button">
+    <div>
       {/* Button to delete the topic */}
       <button
         type="button"

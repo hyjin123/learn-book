@@ -15,7 +15,11 @@ const DeleteResourceButton = (props) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button
+        className=" resource-delete-button"
+        variant="primary"
+        onClick={handleShow}
+      >
         Delete Resource
       </Button>
 
