@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useOutletContext } from "react-router";
 import AddButton from "./AddButton";
-import DeleteButton from "./DeleteButton";
+import DeleteTopicButton from "./DeleteButton";
 import EachResource from "./EachResource";
 
 const Resources = (props) => {
@@ -46,7 +46,9 @@ const Resources = (props) => {
   const resourceList = resources.map((resource) => {
     return (
       <EachResource
-        id={resource.topic_id}
+        key={resource.id}
+        topicId={resource.topic_id}
+        id={resource.id}
         name={resource.name}
         description={resource.description}
         link={resource.link}
@@ -55,7 +57,7 @@ const Resources = (props) => {
   });
   return (
     <div>
-      <DeleteButton onDelete={onDelete} />
+      <DeleteTopicButton onDelete={onDelete} />
       <AddButton userInfo={userInfo} topicId={topicId} />
       <div className="resource-list">{resourceList}</div>
     </div>

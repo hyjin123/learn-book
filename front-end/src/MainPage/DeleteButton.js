@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.css";
 
-const DeleteButton = (props) => {
+const DeleteTopicButton = (props) => {
   const { onDelete } = props;
   return (
     <div className="homepage">
@@ -40,7 +40,8 @@ const DeleteButton = (props) => {
             </div>
             <div className="modal-body">
               Are you sure you want to delete this topic? ALL your resources
-              will be gone as well.
+              will be gone as well. (You will not be able to reverse this
+              action)
             </div>
             <div className="modal-footer">
               <button
@@ -65,4 +66,4 @@ const DeleteButton = (props) => {
   );
 };
 
-export default DeleteButton;
+export default DeleteTopicButton;

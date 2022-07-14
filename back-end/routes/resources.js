@@ -33,5 +33,18 @@ module.exports = (db) => {
       })
       .catch((err) => console.log(err));
   });
+  // delete a resource
+  router.post("/delete", function (req, res) {
+    // retrieve the resource id
+    const resourceId = req.body.id;
+    console.log(resourceId);
+    // delete the resource from the database
+    db.query(`DELETE FROM resources WHERE id=$1 RETURNING id;`, [resourceId])
+      .then((data) => {
+        const resource = data.rows[0];
+        res.json({ resource });
+      })
+      .catch((err) => console.log(err));
+  });
   return router;
 };
