@@ -28,7 +28,7 @@ const AddButton = (props) => {
   };
 
   return (
-    <div className="homepage">
+    <div className="resource-add-button">
       {/* Button to add a resource */}
       <button
         type="button"

@@ -1,6 +1,35 @@
 .resource-list {
+  /* display: grid;
+  grid-auto-flow: column; */
+  /* grid-auto-columns: 1fr; */
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 0 50px;
+}
+
+.resource-button-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.resource-add-button {
+  margin: 0 15px;
+}
+
+.resource-delete-button {
+  margin: 0 15px;
+}
+
+.each-resource-section {
+  margin-top: 60px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.resource-list > * {
+  flex: 1;
 }

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router";
 import Topics from "./Topics";
+import "./HomePage.css";
 
 const HomePage = (props) => {
   // state for the user's topics
@@ -56,18 +57,24 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <h2 className="homepage">My Resources</h2>
-      <div className="topics">{formattedTopics}</div>
-      <form className="form-inline" onSubmit={onSubmit}>
-        <div className="form-group">
-          <label for="topic">Topic</label>
-          <textarea className="form-control" id="topic" rows="3"></textarea>
-        </div>
-
-        <button type="submit" className="btn btn-primary my-1">
-          Submit
-        </button>
-      </form>
+      <div className="homepage-heading">
+        <h2>My Resources</h2>
+        <div className="topics">{formattedTopics}</div>
+        <form className="form-inline" onSubmit={onSubmit}>
+          <div className="form-group form1">
+            <label for="topic">New Topic:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="topic"
+              rows="3"
+            ></input>
+            <button type="submit" className="btn btn-primary my-1">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
       <Outlet context={[selectedTopic]} />
     </div>
   );

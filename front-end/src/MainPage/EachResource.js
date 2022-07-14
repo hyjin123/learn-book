@@ -25,9 +25,9 @@ const EachResource = (props) => {
   };
 
   return (
-    <div className="homepage">
-      <div>{name}</div>
-      <div>{description}</div>
+    <div className="each-resource-section">
+      <div className="resource-name">{name}</div>
+      <div className="resource-description">{description}</div>
       <div>
         <LinkPreview url={link} width="400px" />
       </div>
