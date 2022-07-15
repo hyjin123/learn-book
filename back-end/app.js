@@ -16,11 +16,13 @@ const resourcesRouter = require("./routes/resources");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const topicsRouter = require("./routes/topics");
+const likesRouter = require("./routes/likes");
 
 // Routes
 app.use("/resources", resourcesRouter(db));
 app.use("/login", loginRouter(db));
 app.use("/register", registerRouter(db));
 app.use("/topics", topicsRouter(db));
+app.use("/likes", likesRouter(db));
 
 module.exports = app;

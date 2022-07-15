@@ -15,19 +15,30 @@ const EachResource = (props) => {
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
   //  destructure props
-  const { topicId, id, name, description, link } = props;
+  const { userId, topicId, id, name, description, link } = props;
 
   // when a user likes a resource
   const onLike = (event) => {
     event.preventDefault();
     // toggle between true and false
     setLike((current) => !current);
+    // make an axios request to change likes
+    axios
+      .post("/likes", {
+        like,
+        id,
+        userId,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   // when a user saves a resource
   const onSave = (event) => {
     event.preventDefault();
-    // toggle between true and false
+    // toggle between true and false to display different icon
     setSave((current) => !current);
   };
 

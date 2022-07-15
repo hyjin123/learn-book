@@ -48,6 +48,7 @@ const Resources = (props) => {
       <EachResource
         key={resource.id}
         topicId={resource.topic_id}
+        userId={userInfo}
         id={resource.id}
         name={resource.name}
         description={resource.description}
