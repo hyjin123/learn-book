@@ -15,28 +15,39 @@ const EachResource = (props) => {
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
   //  destructure props
-  const { userId, topicId, id, name, description, link } = props;
+  const { userId, id, name, description, link } = props;
 
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
-    axios
-      .get("/likes", {
+    Promise.all([
+      axios.get("/likes", {
         params: {
           id,
           userId,
         },
-      })
-      .then((res) => {
-        const likesArray = res.data.likes;
-        console.log(likesArray);
-        //  if the resource is liked by this user, set like state to true. if not, false
-        if (likesArray.length >= 1) {
-          setLike(true);
-        } else {
-          setLike(false);
-        }
-      })
-      .catch((err) => console.log(err));
+      }),
+      axios.get("/saves", {
+        params: {
+          id,
+          userId,
+        },
+      }),
+    ]).then((all) => {
+      const likesArray = all[0].data.likes;
+      const savesArray = all[1].data.saves;
+      //  if the resource is liked by this user, set like state to true. if not, false
+      if (likesArray.length >= 1) {
+        setLike(true);
+      } else {
+        setLike(false);
+      }
+      //  if the resource is saved by this user, set save state to true. if not, false
+      if (savesArray.length >= 1) {
+        setSave(true);
+      } else {
+        setSave(false);
+      }
+    });
   }, []);
 
   // when a user likes a resource
@@ -62,6 +73,17 @@ const EachResource = (props) => {
     event.preventDefault();
     // toggle between true and false to display different icon
     setSave((current) => !current);
+    // make an axios request to change saves
+    axios
+      .post("/saves", {
+        save,
+        id,
+        userId,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   // when a user deletes a single resource
