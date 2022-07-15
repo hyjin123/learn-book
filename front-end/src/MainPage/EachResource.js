@@ -17,6 +17,28 @@ const EachResource = (props) => {
   //  destructure props
   const { userId, topicId, id, name, description, link } = props;
 
+  // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
+  useEffect(() => {
+    axios
+      .get("/likes", {
+        params: {
+          id,
+          userId,
+        },
+      })
+      .then((res) => {
+        const likesArray = res.data.likes;
+        console.log(likesArray);
+        //  if the resource is liked by this user, set like state to true. if not, false
+        if (likesArray.length >= 1) {
+          setLike(true);
+        } else {
+          setLike(false);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   // when a user likes a resource
   const onLike = (event) => {
     event.preventDefault();
