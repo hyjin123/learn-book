@@ -14,6 +14,20 @@ module.exports = (db) => {
       })
       .catch((err) => console.log(err));
   });
+  // get all resources based on user's search value (explore page)
+  router.get("/search", function (req, res) {
+    // retrieve the topic
+    const resourceName = req.query.search;
+    // query the search
+    db.query(`SELECT * FROM resources WHERE LOWER(name) LIKE LOWER($1);`, [
+      `%${resourceName}%`,
+    ])
+      .then((data) => {
+        const resources = data.rows;
+        res.json({ resources });
+      })
+      .catch((err) => console.log(err));
+  });
   // add a resource
   router.post("/add", function (req, res) {
     // retrieve the user id
