@@ -8,6 +8,7 @@ import Profile from "./MainPage/Profile";
 import Login from "./Login/Login";
 import Register from "./Login/Register";
 import Resources from "./MainPage/Resources";
+import Saved from "./MainPage/Saved";
 
 function App() {
   const [token, setToken] = useState("");
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/saved" element={<Saved />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

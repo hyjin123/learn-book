@@ -14,6 +14,24 @@ module.exports = (db) => {
       })
       .catch((err) => console.log(err));
   });
+  // get all SAVED resources for a user
+  router.get("/saved", function (req, res) {
+    // retrieve the user ID
+    const userId = req.query.userInfo;
+    // query the saved resources for this particular user
+    db.query(
+      `SELECT resources.id, topic_id, resources.name, description, link, first_name, last_name FROM resources 
+      JOIN saves ON resources.id = resource_id
+      JOIN users ON users.id = user_id
+      WHERE user_id = $1;`,
+      [userId]
+    )
+      .then((data) => {
+        const resources = data.rows;
+        res.json({ resources });
+      })
+      .catch((err) => console.log(err));
+  });
   // get all resources based on user's search value (explore page)
   router.get("/search", function (req, res) {
     // retrieve the topic

@@ -26,7 +26,6 @@ const Explore = (props) => {
         },
       })
       .then((res) => {
-        console.log(res.data.resources);
         setSearched(res.data.resources);
       })
       .catch((err) => console.log(err));

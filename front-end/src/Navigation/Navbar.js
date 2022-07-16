@@ -64,15 +64,22 @@ const Navbar = (props) => {
           )}
           {token && (
             <li className="nav-item">
-              <a className="nav-link" href="/profile">
-                Profile
+              <a className="nav-link" href="/explore">
+                Explore
               </a>
             </li>
           )}
           {token && (
             <li className="nav-item">
-              <a className="nav-link" href="/explore">
-                Explore
+              <a className="nav-link" href="/saved">
+                Saved
+              </a>
+            </li>
+          )}
+          {token && (
+            <li className="nav-item">
+              <a className="nav-link" href="/profile">
+                Profile
               </a>
             </li>
           )}
