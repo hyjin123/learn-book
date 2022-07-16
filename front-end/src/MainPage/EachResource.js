@@ -15,7 +15,16 @@ const EachResource = (props) => {
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
   //  destructure props
-  const { userId, id, name, description, link } = props;
+  const {
+    topicId,
+    ownerFirstName,
+    ownerLastName,
+    userId,
+    id,
+    name,
+    description,
+    link,
+  } = props;
 
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
@@ -109,6 +118,11 @@ const EachResource = (props) => {
       <div className="resource-preview">
         <LinkPreview url={link} width="400px" />
       </div>
+      {ownerFirstName && (
+        <div>
+          By {ownerFirstName} {ownerLastName}
+        </div>
+      )}
       <div className="icons">
         {!like ? (
           <FontAwesomeIcon

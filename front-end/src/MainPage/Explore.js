@@ -26,6 +26,7 @@ const Explore = (props) => {
         },
       })
       .then((res) => {
+        console.log(res.data.resources);
         setSearched(res.data.resources);
       })
       .catch((err) => console.log(err));
@@ -38,6 +39,8 @@ const Explore = (props) => {
         key={resource.id}
         topicId={resource.topic_id}
         userId={userInfo}
+        ownerFirstName={resource.first_name}
+        ownerLastName={resource.last_name}
         id={resource.id}
         name={resource.name}
         description={resource.description}

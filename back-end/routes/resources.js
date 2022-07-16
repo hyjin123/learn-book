@@ -19,9 +19,13 @@ module.exports = (db) => {
     // retrieve the topic
     const resourceName = req.query.search;
     // query the search
-    db.query(`SELECT * FROM resources WHERE LOWER(name) LIKE LOWER($1);`, [
-      `%${resourceName}%`,
-    ])
+    db.query(
+      `SELECT resources.id, topic_id, resources.name, description, link, first_name, last_name FROM resources 
+      JOIN topics ON topics.id = topic_id 
+      JOIN users ON users.id = user_id
+      WHERE LOWER(resources.name) LIKE LOWER($1);`,
+      [`%${resourceName}%`]
+    )
       .then((data) => {
         const resources = data.rows;
         res.json({ resources });
