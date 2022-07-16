@@ -14,6 +14,7 @@ const EachResource = (props) => {
   // use hook to set the state of liked or saved resource
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
   //  destructure props
   const {
     topicId,
@@ -41,22 +42,31 @@ const EachResource = (props) => {
           userId,
         },
       }),
-    ]).then((all) => {
-      const likesArray = all[0].data.likes;
-      const savesArray = all[1].data.saves;
-      //  if the resource is liked by this user, set like state to true. if not, false
-      if (likesArray.length >= 1) {
-        setLike(true);
-      } else {
-        setLike(false);
-      }
-      //  if the resource is saved by this user, set save state to true. if not, false
-      if (savesArray.length >= 1) {
-        setSave(true);
-      } else {
-        setSave(false);
-      }
-    });
+      axios.get("/likes/count", {
+        params: {
+          id,
+        },
+      }),
+    ])
+      .then((all) => {
+        const likesArray = all[0].data.likes;
+        const savesArray = all[1].data.saves;
+        const likesCount = all[2].data.likes[0].count;
+        setLikeCount(likesCount);
+        //  if the resource is liked by this user, set like state to true. if not, false
+        if (likesArray.length >= 1) {
+          setLike(true);
+        } else {
+          setLike(false);
+        }
+        //  if the resource is saved by this user, set save state to true. if not, false
+        if (savesArray.length >= 1) {
+          setSave(true);
+        } else {
+          setSave(false);
+        }
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   // when a user likes a resource
@@ -64,17 +74,23 @@ const EachResource = (props) => {
     event.preventDefault();
     // toggle between true and false
     setLike((current) => !current);
-    // make an axios request to change likes
-    axios
-      .post("/likes", {
+    // make an axios request to change likes (POST to /likes) and get likes count (GET to /likes.)
+    Promise.all([
+      axios.post("/likes", {
         like,
         id,
         userId,
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
+      }),
+      axios.get("/likes/count", {
+        params: {
+          id,
+        },
+      }),
+    ]).then((all) => {
+      const likesCount = all[1].data.likes[0].count;
+      console.log(likesCount);
+      setLikeCount(likesCount);
+    });
   };
 
   // when a user saves a resource
@@ -137,6 +153,7 @@ const EachResource = (props) => {
             onClick={onLike}
           />
         )}
+        {likeCount}
         {!save ? (
           <FontAwesomeIcon
             className="icon"

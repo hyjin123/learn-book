@@ -17,6 +17,17 @@ module.exports = (db) => {
       .catch((err) => console.log(err));
   });
 
+  // retrieve number of likes for a single resource
+  router.get("/count", function (req, res) {
+    const resourceId = req.query.id;
+    db.query(`SELECT COUNT(*) FROM likes WHERE resource_id=$1;`, [resourceId])
+      .then((data) => {
+        const likes = data.rows;
+        res.json({ likes });
+      })
+      .catch((err) => console.log(err));
+  });
+
   // toggle likes
   router.post("/", function (req, res) {
     // retrieve the like status

@@ -50,6 +50,7 @@ module.exports = (db) => {
       })
       .catch((err) => console.log(err));
   });
+
   // add a resource
   router.post("/add", function (req, res) {
     // retrieve the user id
