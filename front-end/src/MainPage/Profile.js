@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Topics from "./Topics";
+import Avatar from "avataaars";
+import { generateRandomAvatarOptions } from "./Avatar";
 
 const Profile = () => {
   const [topics, setTopics] = useState([]);
@@ -38,11 +40,19 @@ const Profile = () => {
   return (
     <div>
       <div className="homepage-heading">
-        <h2>Profile</h2>
+        <h2>Your Profile</h2>
+        <Avatar
+          style={{ width: "100px", height: "100px" }}
+          avatarStyle="Circle"
+          {...generateRandomAvatarOptions()}
+        />
         <h5>First Name: {user["first_name"]}</h5>
         <h5>Last Name: {user["last_name"]}</h5>
-        <h6>Your Topics:</h6>
-        <div className="topics">{formattedTopics}</div>
+
+        <div className="topics">
+          <h6>Your Topics:</h6>
+          {formattedTopics}
+        </div>
       </div>
     </div>
   );

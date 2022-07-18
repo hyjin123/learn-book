@@ -8,6 +8,7 @@ body {
   flex-direction: row;
   font-weight: 300;
   text-decoration: none;
+  align-items: center;
 }
 
 .topic {
