@@ -8,7 +8,8 @@ import EachResource from "./EachResource";
 const Resources = (props) => {
   const [resources, setResources] = useState([]);
   // use context that was sent down as prop to know which topic has been selected
-  const [selectedTopic] = useOutletContext();
+  const [selectedTopic, ownerId] = useOutletContext();
+
   // get the user ID and topic ID from the local storage
   const userInfo = parseFloat(localStorage.getItem("userinfo"));
   const topicId = parseFloat(localStorage.getItem("topic"));
@@ -47,6 +48,7 @@ const Resources = (props) => {
     return (
       <EachResource
         key={resource.id}
+        ownerId={ownerId}
         topicId={resource.topic_id}
         userId={userInfo}
         id={resource.id}
@@ -59,8 +61,8 @@ const Resources = (props) => {
   return (
     <div className="resource-section">
       <div className="resource-button-section">
-        <DeleteTopicButton onDelete={onDelete} />
-        <AddButton userInfo={userInfo} topicId={topicId} />
+        {ownerId ? "" : <DeleteTopicButton onDelete={onDelete} />}
+        {ownerId ? "" : <AddButton userInfo={userInfo} topicId={topicId} />}
       </div>
       <div className="resource-list">{resourceList}</div>
     </div>

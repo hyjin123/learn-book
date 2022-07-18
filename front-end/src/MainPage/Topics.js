@@ -4,7 +4,7 @@ import "./Topics.css";
 
 const Topics = (props) => {
   // destrucure props
-  const { topicId, topicName, setSelectedTopic } = props;
+  const { ownerId, topicId, topicName, setSelectedTopic } = props;
   // when a user clicks on the specific 1 topic
   const onSelect = (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ const Topics = (props) => {
     <div className="topic" onClick={onSelect}>
       <NavLink
         className={({ isActive }) => (isActive ? "activeBtn" : "topic1")}
-        to={`/home/${topicURL}`}
+        to={ownerId ? `/user/${ownerId}/${topicURL}` : `/home/${topicURL}`}
         end
       >
         {topicName}

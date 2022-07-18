@@ -21,7 +21,9 @@ function App() {
           <Route path=":topic" element={<Resources />} />
         </Route>
         <Route path="/explore" element={<Explore />} />
-        <Route path="/user/:ownerId" element={<User />} />
+        <Route path="/user/:ownerId" element={<User />}>
+          <Route path=":topic" element={<Resources />} />
+        </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/login" element={<Login />} />

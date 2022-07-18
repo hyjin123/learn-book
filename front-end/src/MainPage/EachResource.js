@@ -180,7 +180,11 @@ const EachResource = (props) => {
           />
         )}
       </div>
-      <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
+      {ownerId ? (
+        ""
+      ) : (
+        <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
+      )}
     </div>
   );
 };

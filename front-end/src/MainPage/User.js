@@ -11,6 +11,7 @@ const User = (props) => {
   const [topics, setTopics] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState(0);
 
   // get the ownerId from the URL
   const { ownerId } = useParams();
@@ -45,20 +46,40 @@ const User = (props) => {
 
   // map through the topics and display a well formatted component for each of them
   const formattedTopics = topics.map((topic) => {
-    return <Topics key={topic.id} topicId={topic.id} topicName={topic.name} />;
+    return (
+      <Topics
+        key={topic.id}
+        ownerId={ownerId}
+        topicId={topic.id}
+        topicName={topic.name}
+        setSelectedTopic={setSelectedTopic}
+      />
+    );
   });
 
   return (
     <div>
       <div className="homepage-heading">
-        <button onClick={() => navigate(-1)} className="btn btn-primary">
-          Go Back
+        <button
+          onClick={() => navigate("/explore")}
+          className="btn btn-primary"
+        >
+          Go Back to Exploring
         </button>
         <h2>Profile</h2>
         <Avatar
           style={{ width: "200px", height: "200px" }}
           avatarStyle="Circle"
-          {...generateRandomAvatarOptions()}
+          topType="LongHairMiaWallace"
+          accessoriesType="Prescription02"
+          hairColor="BrownDark"
+          facialHairType="Blank"
+          clotheType="Hoodie"
+          clotheColor="PastelBlue"
+          eyeType="Happy"
+          eyebrowType="Default"
+          mouthType="Smile"
+          skinColor="Light"
         />
         <h5>First Name: {firstName}</h5>
         <h5>Last Name: {lastName}</h5>
@@ -67,6 +88,7 @@ const User = (props) => {
           {formattedTopics}
         </div>
       </div>
+      <Outlet context={[selectedTopic, ownerId]} />
     </div>
   );
 };
