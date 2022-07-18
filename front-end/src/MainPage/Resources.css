@@ -54,3 +54,12 @@
 .icon:hover {
   cursor: pointer;
 }
+
+.user {
+  color: #317388;
+}
+
+.user:hover {
+  color: #31add5;
+  cursor: pointer;
+}

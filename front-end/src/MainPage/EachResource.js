@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import DeleteResourceButton from "./DeleteResourceButton";
 import "./Resources.css";
@@ -15,9 +16,13 @@ const EachResource = (props) => {
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+
+  const navigate = useNavigate();
+
   //  destructure props
   const {
     topicId,
+    ownerId,
     ownerFirstName,
     ownerLastName,
     userId,
@@ -127,6 +132,13 @@ const EachResource = (props) => {
       .catch((err) => console.log(err));
   };
 
+  // when a user clicks on other user's name
+  const userClick = (event) => {
+    event.preventDefault();
+    // navigate to the profile of the other user
+    navigate(`/user/${ownerId}`);
+  };
+
   return (
     <div className="each-resource-section">
       <div className="resource-name">{name}</div>
@@ -135,8 +147,8 @@ const EachResource = (props) => {
         <LinkPreview url={link} width="400px" />
       </div>
       {ownerFirstName && (
-        <div>
-          By {ownerFirstName} {ownerLastName}
+        <div className="user" onClick={userClick}>
+          {ownerFirstName} {ownerLastName}
         </div>
       )}
       <div className="icons">

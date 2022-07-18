@@ -42,7 +42,7 @@ const Profile = () => {
       <div className="homepage-heading">
         <h2>Your Profile</h2>
         <Avatar
-          style={{ width: "100px", height: "100px" }}
+          style={{ width: "200px", height: "200px" }}
           avatarStyle="Circle"
           {...generateRandomAvatarOptions()}
         />

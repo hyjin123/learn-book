@@ -9,6 +9,7 @@ import Login from "./Login/Login";
 import Register from "./Login/Register";
 import Resources from "./MainPage/Resources";
 import Saved from "./MainPage/Saved";
+import User from "./MainPage/User";
 
 function App() {
   const [token, setToken] = useState("");
@@ -20,6 +21,7 @@ function App() {
           <Route path=":topic" element={<Resources />} />
         </Route>
         <Route path="/explore" element={<Explore />} />
+        <Route path="/user/:ownerId" element={<User />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/login" element={<Login />} />

@@ -38,6 +38,7 @@ const Explore = (props) => {
         key={resource.id}
         topicId={resource.topic_id}
         userId={userInfo}
+        ownerId={resource.userid}
         ownerFirstName={resource.first_name}
         ownerLastName={resource.last_name}
         id={resource.id}
