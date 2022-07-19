@@ -10,6 +10,7 @@ import {
   faThumbsUp as faSolidThumbsUp,
   faBookmark as faSolidBookmark,
 } from "@fortawesome/free-solid-svg-icons";
+import AddResource from "./AddResource";
 
 const EachResource = (props) => {
   // use hook to set the state of liked or saved resource
@@ -179,6 +180,7 @@ const EachResource = (props) => {
             onClick={onSave}
           />
         )}
+        <AddResource userId={userId} link={link} />
       </div>
       {ownerId ? (
         ""

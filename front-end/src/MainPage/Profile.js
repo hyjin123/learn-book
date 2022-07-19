@@ -44,7 +44,16 @@ const Profile = () => {
         <Avatar
           style={{ width: "200px", height: "200px" }}
           avatarStyle="Circle"
-          {...generateRandomAvatarOptions()}
+          topType="LongHairMiaWallace"
+          accessoriesType="Prescription02"
+          hairColor="BrownDark"
+          facialHairType="Blank"
+          clotheType="Hoodie"
+          clotheColor="PastelBlue"
+          eyeType="Happy"
+          eyebrowType="Default"
+          mouthType="Smile"
+          skinColor="Light"
         />
         <h5>First Name: {user["first_name"]}</h5>
         <h5>Last Name: {user["last_name"]}</h5>
