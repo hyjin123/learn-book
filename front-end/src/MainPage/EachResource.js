@@ -11,6 +11,7 @@ import {
   faBookmark as faSolidBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import AddResource from "./AddResource";
+import Comments from "./Comments";
 
 const EachResource = (props) => {
   // use hook to set the state of liked or saved resource
@@ -182,6 +183,7 @@ const EachResource = (props) => {
           />
         )}
         <AddResource userId={userId} link={link} />
+        <Comments resourceId={id} />
       </div>
       {ownerId ? (
         ""
