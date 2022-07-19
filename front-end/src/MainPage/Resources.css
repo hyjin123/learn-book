@@ -63,3 +63,8 @@
   color: #31add5;
   cursor: pointer;
 }
+
+.resource-name {
+  font-size: 1.4em;
+  font-weight: 500;
+}

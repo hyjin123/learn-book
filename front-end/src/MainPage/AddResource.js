@@ -12,9 +12,15 @@ const AddResource = (props) => {
   // Hook for Modal
   const [show, setShow] = useState(false);
   const [topics, setTopics] = useState([]);
+  // shows modal once resource has been successfully added
+  const [confirm, setConfirm] = useState(false);
 
   const { userId, link } = props;
-  const handleClose = () => setShow(false);
+
+  const handleClose = () => {
+    setShow(false);
+    setConfirm(false);
+  };
   // when a user adds a resource to their own topic
   const handleShow = () => setShow(true);
 
@@ -46,11 +52,23 @@ const AddResource = (props) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // save all the data
-    const topic = data.get("topic");
+    const topicId = data.get("topic");
     const name = data.get("name");
     const description = data.get("description");
-    const link = data.get("url");
-    console.log(topic, name, description, link);
+    const url = data.get("url");
+    console.log(topicId, name, description, url);
+    axios
+      .post("/resources/add", {
+        topicId,
+        name,
+        description,
+        url,
+      })
+      .then((res) => {
+        // show confirmation that the resource has been added once it's successful in the backend
+        setConfirm(true);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -69,7 +87,7 @@ const AddResource = (props) => {
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Topic</Form.Label>
               <Form.Select name="topic" aria-label="Topic">
-                <option>Open this select topic</option>
+                <option>Select topic</option>
                 {options}
               </Form.Select>
             </Form.Group>
@@ -112,6 +130,16 @@ const AddResource = (props) => {
             onClick={handleClose}
           >
             Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal show={confirm} onHide={handleClose}>
+        <Modal.Body as="h5">
+          This resource has been added to your profile!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>
