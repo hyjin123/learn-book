@@ -30,6 +30,7 @@ const Saved = (props) => {
         key={resource.id}
         topicId={resource.topic_id}
         userId={userInfo}
+        ownerId={resource.ownerid}
         ownerFirstName={resource.first_name}
         ownerLastName={resource.last_name}
         id={resource.id}

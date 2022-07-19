@@ -20,9 +20,9 @@ module.exports = (db) => {
     const userId = req.query.userInfo;
     // query the saved resources for this particular user
     db.query(
-      `SELECT resources.id, topic_id, resources.name, description, link, first_name, last_name FROM resources 
+      `SELECT resources.id, topic_id, resources.name, description, link, users.id AS userid, owner_id as ownerid, first_name, last_name FROM resources 
       JOIN saves ON resources.id = resource_id
-      JOIN users ON users.id = user_id
+      JOIN users ON users.id = owner_id
       WHERE user_id = $1;`,
       [userId]
     )

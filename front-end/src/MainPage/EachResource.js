@@ -110,6 +110,7 @@ const EachResource = (props) => {
         save,
         id,
         userId,
+        ownerId,
       })
       .then((res) => {
         console.log(res.data);

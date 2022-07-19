@@ -23,6 +23,7 @@ module.exports = (db) => {
     const save = req.body.save;
     const resourceId = req.body.id;
     const userId = req.body.userId;
+    const ownerId = req.body.ownerId;
     // based on the condition of whether it was saved or not, make changes to the database
     if (save) {
       db.query(
@@ -36,8 +37,8 @@ module.exports = (db) => {
         .catch((err) => console.log(err));
     } else {
       db.query(
-        `INSERT INTO saves(resource_id, user_id) VALUES($1, $2) RETURNING id;`,
-        [resourceId, userId]
+        `INSERT INTO saves(resource_id, user_id, owner_id) VALUES($1, $2, $3) RETURNING id;`,
+        [resourceId, userId, ownerId]
       )
         .then((data) => {
           const id = data.rows;
