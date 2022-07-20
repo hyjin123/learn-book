@@ -17,7 +17,8 @@ const EachComment = (props) => {
 
   // if five minutes has passed, user cannot edit or reply the comment
   const fiveMin = 300000;
-  const timePassed = new Date() - comment.posted_date > fiveMin;
+  const timePassed = new Date() - new Date(comment.posted_date) > fiveMin;
+
   // make boolean variables for user permission to manage the comments
   const canReply = Boolean(currentUserId);
   const canEdit = currentUserId === comment.user_id && !timePassed;

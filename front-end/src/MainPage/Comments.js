@@ -18,7 +18,12 @@ const Comments = (props) => {
   const { resourceId, userId } = props;
 
   // filter root comments only
-  const rootComments = comments.filter((comment) => comment.parent_id === null);
+  const rootComments = comments
+    .filter((comment) => comment.parent_id === null)
+    .sort(
+      (a, b) =>
+        new Date(b.posted_date).getTime() - new Date(a.posted_date).getTime()
+    );
 
   // function to get replies for a specific comment, display in descending order for posted date
   const getReplies = (commentId) => {
