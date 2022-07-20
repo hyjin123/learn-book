@@ -183,7 +183,7 @@ const EachResource = (props) => {
           />
         )}
         <AddResource userId={userId} link={link} />
-        <Comments resourceId={id} />
+        <Comments resourceId={id} userId={userId} />
       </div>
       {ownerId ? (
         ""

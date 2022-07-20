@@ -28,6 +28,7 @@ app.use("/register", registerRouter(db));
 app.use("/topics", topicsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/saves", savesRouter(db));
+app.use("/profile", profileRouter(db));
 app.use("/comments", commentsRouter(db));
 
 module.exports = app;
