@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CommentForm from "./CommentForm";
+import DeleteCommentButton from "./DeleteCommentButton";
 
 const EachComment = (props) => {
   const {
@@ -79,12 +80,10 @@ const EachComment = (props) => {
             </div>
           )}
           {canDelete && (
-            <div
-              className="comment-action"
-              onClick={() => deleteComment(comment.id)}
-            >
-              Delete
-            </div>
+            <DeleteCommentButton
+              deleteComment={deleteComment}
+              commentId={comment.id}
+            />
           )}
         </div>
         {isReplying && (
