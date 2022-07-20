@@ -62,12 +62,12 @@ const HomePage = (props) => {
         <div className="topics">{formattedTopics}</div>
         <form className="form-inline" onSubmit={onSubmit}>
           <div className="form-group form1">
-            <label for="topic">New Topic:</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control search-bar"
               id="topic"
               rows="3"
+              placeholder="Add New Topic"
             ></input>
             <button type="submit" className="btn btn-primary my-1">
               Submit

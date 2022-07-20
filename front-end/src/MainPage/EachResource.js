@@ -147,7 +147,15 @@ const EachResource = (props) => {
       <div className="resource-name">{name}</div>
       <div className="resource-description">{description}</div>
       <div className="resource-preview">
-        <LinkPreview url={link} width="400px" />
+        <LinkPreview
+          url={link}
+          backgroundColor="#FCF8E5"
+          borderColor="black"
+          descriptionLength="100"
+          height="500px"
+          width="400px"
+          borderRadius="15px"
+        />
       </div>
       {ownerFirstName && (
         <div className="user" onClick={userClick}>
@@ -155,6 +163,7 @@ const EachResource = (props) => {
         </div>
       )}
       <div className="icons">
+        {likeCount}
         {!like ? (
           <FontAwesomeIcon
             className="icon"
@@ -168,7 +177,6 @@ const EachResource = (props) => {
             onClick={onLike}
           />
         )}
-        {likeCount}
         {!save ? (
           <FontAwesomeIcon
             className="icon"

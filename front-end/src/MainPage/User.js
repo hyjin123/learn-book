@@ -66,7 +66,7 @@ const User = (props) => {
         >
           Go Back to Exploring
         </button>
-        <h2>Profile</h2>
+        <h2 className="profile-header">Profile</h2>
         <Avatar
           style={{ width: "200px", height: "200px" }}
           avatarStyle="Circle"
@@ -81,8 +81,9 @@ const User = (props) => {
           mouthType="Smile"
           skinColor="Light"
         />
-        <h5>First Name: {firstName}</h5>
-        <h5>Last Name: {lastName}</h5>
+        <div className="profile-name">
+          {firstName} {lastName}
+        </div>
         <div className="topics">
           <h6>Topics:</h6>
           {formattedTopics}

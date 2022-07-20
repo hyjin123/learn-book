@@ -82,11 +82,14 @@ const AddResource = (props) => {
         <Modal.Header>
           <Modal.Title>Add Resource</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           <Form onSubmit={handleAdd} id="form">
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Topic</Form.Label>
-              <Form.Select name="topic" aria-label="Topic">
+              <Form.Select
+                className="search-bar2"
+                name="topic"
+                aria-label="Topic"
+              >
                 <option>Select topic</option>
                 {options}
               </Form.Select>
@@ -94,12 +97,18 @@ const AddResource = (props) => {
 
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Name</Form.Label>
-              <Form.Control name="name" type="text" placeholder="Enter Name" />
+              <Form.Control
+                className="search-bar2"
+                name="name"
+                type="text"
+                placeholder="Enter Name"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
               <Form.Label>Description</Form.Label>
               <Form.Control
+                className="search-bar2"
                 as="textarea"
                 name="description"
                 rows={3}
@@ -110,6 +119,7 @@ const AddResource = (props) => {
             <Form.Group className="mb-3" controlId="url">
               <Form.Label>URL</Form.Label>
               <Form.Control
+                className="search-bar2"
                 readOnly
                 name="url"
                 value={link}

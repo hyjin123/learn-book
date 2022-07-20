@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Topics from "./Topics";
 import Avatar from "avataaars";
+import "./Profile.css";
 import { generateRandomAvatarOptions } from "./Avatar";
 
 const Profile = () => {
@@ -55,8 +56,9 @@ const Profile = () => {
           mouthType="Smile"
           skinColor="Light"
         />
-        <h5>First Name: {user["first_name"]}</h5>
-        <h5>Last Name: {user["last_name"]}</h5>
+        <div className="profile-name">
+          {user["first_name"]} {user["last_name"]}
+        </div>
 
         <div className="topics">
           <h6>Your Topics:</h6>

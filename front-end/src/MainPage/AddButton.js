@@ -68,26 +68,29 @@ const AddButton = (props) => {
                   <label for="name">Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control search-bar2"
                     id="name"
                     rows="3"
+                    placeholder="Enter Name"
                   ></input>
                 </div>
                 <div className="form-group">
                   <label for="description">Description</label>
                   <textarea
-                    className="form-control"
+                    className="form-control search-bar2"
                     id="description"
                     rows="3"
+                    placeholder="Enter Description"
                   ></textarea>
                 </div>
                 <div className="form-group">
                   <label for="url">URL</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control search-bar2"
                     id="url"
                     rows="3"
+                    placeholder="Enter URL"
                   ></input>
                 </div>
               </form>

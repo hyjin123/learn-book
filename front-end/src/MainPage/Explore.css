@@ -6,7 +6,22 @@
   margin: 0 40%;
 }
 
-.search-button > * {
-  margin: 10px;
-  padding: 10px;
+.search-text {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+}
+
+.search-bar {
+  border: 2px solid #78b3f9;
+  background-color: white;
+}
+
+.search-bar2 {
+  border: 1px solid #a6cbf8;
+  background-color: white;
+}
+
+.modal-body {
+  margin: 15px;
 }

@@ -55,10 +55,13 @@ const Explore = (props) => {
           className="mb-3 search-button"
           controlId="exampleForm.ControlTextarea1"
         >
-          <Form.Label>Search</Form.Label>
+          <Form.Label className="search-text">
+            Explore Other Resources
+          </Form.Label>
           <Form.Control
-            size="sm"
-            as="textarea"
+            className="search-bar"
+            size="md"
+            as="input"
             rows={1}
             value={search}
             placeholder="Search"
