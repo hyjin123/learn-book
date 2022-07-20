@@ -17,15 +17,16 @@ const Comments = (props) => {
 
   const { resourceId, userId } = props;
 
-  // filter root comments only
+  // filter root comments only, in descending order
   const rootComments = comments
     .filter((comment) => comment.parent_id === null)
     .sort(
       (a, b) =>
-        new Date(b.posted_date).getTime() - new Date(a.posted_date).getTime()
-    );
+        new Date(a.posted_date).getTime() - new Date(b.posted_date).getTime()
+    )
+    .reverse();
 
-  // function to get replies for a specific comment, display in descending order for posted date
+  // function to get replies for a specific comment, display in ascending order (oldest top, recent ones last) for posted date
   const getReplies = (commentId) => {
     return comments
       .filter((comment) => comment.parent_id === commentId)
