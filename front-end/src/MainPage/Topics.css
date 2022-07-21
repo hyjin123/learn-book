@@ -6,6 +6,8 @@ body {
 .topics {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   font-weight: 300;
   text-decoration: none;
   align-items: center;

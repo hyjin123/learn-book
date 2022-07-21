@@ -8,10 +8,16 @@ const HomePage = (props) => {
   // state for the user's topics
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(0);
+  // Hook used to save the value typed in the add new topic field
+  const [topic, setTopic] = useState("");
+
   // destructure props
   const { token } = props;
   // get the user ID from the local storage
   const userInfo = parseFloat(localStorage.getItem("userinfo"));
+  // disable the button if no topic is typed
+  const isTextAreaDisabled = topic.length === 0;
+
   // retrive the topics for a specific user in the database
   useEffect(() => {
     axios
@@ -26,18 +32,19 @@ const HomePage = (props) => {
       })
       .catch((err) => console.log(err));
   }, [userInfo]);
+
   // handles when user submits a topic, sends the data to the backend and saves the topic in the database
   const onSubmit = (event) => {
     event.preventDefault();
     // save the topic
-    const topic = event.target.topic.value;
+    const topicAdded = event.target.topic.value;
     // send an axios post request to input the new topic into the database
     axios
       .post("/topics", {
         userInfo,
-        topic,
+        topic: topicAdded,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => setTopic(""))
       .catch((err) => console.log(err));
     // refreshes the page whenever user inputs new topic, so that the list is updated
     window.location.reload(false);
@@ -68,8 +75,14 @@ const HomePage = (props) => {
               id="topic"
               rows="3"
               placeholder="Add New Topic"
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
             ></input>
-            <button type="submit" className="btn btn-primary my-1">
+            <button
+              type="submit"
+              className="btn btn-primary my-1"
+              disabled={isTextAreaDisabled}
+            >
               Submit
             </button>
           </div>
