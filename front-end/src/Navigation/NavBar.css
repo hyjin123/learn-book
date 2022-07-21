@@ -1,0 +1,12 @@
+/* navbar */
+.navbar-default {
+  background-color: #f9f6e8;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+}
+
+.active {
+  font-weight: 500;
+}

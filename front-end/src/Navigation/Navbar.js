@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 const Navbar = (props) => {
   // navigating between pages using react router
@@ -23,9 +24,9 @@ const Navbar = (props) => {
     navigate("/login");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light navbar-default">
       <a className="navbar-brand" href="/home">
-        LearnBook
+        <img className="logo" src="/learnbook-final.png" />
       </a>
       <button
         className="navbar-toggler"
@@ -42,45 +43,65 @@ const Navbar = (props) => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           {token && (
-            <li className="nav-item active">
-              <a className="nav-link" href="/home">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/home" activeClassName="active">
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </NavLink>
             </li>
           )}
           {!token && (
-            <li className="nav-item active">
-              <a className="nav-link" href="/login">
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/login"
+                activeClassName="active"
+              >
                 Login <span className="sr-only">(current)</span>
-              </a>
+              </NavLink>
             </li>
           )}
           {!token && (
-            <li className="nav-item active">
-              <a className="nav-link" href="/register">
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/register"
+                activeClassName="active"
+              >
                 Register <span className="sr-only">(current)</span>
-              </a>
+              </NavLink>
             </li>
           )}
           {token && (
             <li className="nav-item">
-              <a className="nav-link" href="/explore">
+              <NavLink
+                className="nav-link"
+                to="/explore"
+                activeClassName="active"
+              >
                 Explore
-              </a>
+              </NavLink>
             </li>
           )}
           {token && (
             <li className="nav-item">
-              <a className="nav-link" href="/saved">
+              <NavLink
+                className="nav-link"
+                to="/saved"
+                activeClassName="active"
+              >
                 Saved
-              </a>
+              </NavLink>
             </li>
           )}
           {token && (
             <li className="nav-item">
-              <a className="nav-link" href="/profile">
+              <NavLink
+                className="nav-link"
+                to="/profile"
+                activeClassName="active"
+              >
                 Profile
-              </a>
+              </NavLink>
             </li>
           )}
           {token && (
@@ -116,20 +137,6 @@ const Navbar = (props) => {
             </div>
           </li> */}
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
       </div>
     </nav>
   );

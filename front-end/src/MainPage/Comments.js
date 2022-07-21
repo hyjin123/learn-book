@@ -152,14 +152,6 @@ const Comments = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            form="form"
-            type="submit"
-            variant="primary"
-            onClick={handleClose}
-          >
-            Save
-          </Button>
         </Modal.Footer>
       </Modal>
     </>
