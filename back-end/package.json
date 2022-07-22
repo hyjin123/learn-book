@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon .bin/www",
+    "start": "node bin/www",
+    "dev": "nodemon bin/www",
     "db:reset": "node ./db/reset.js"
   },
   "dependencies": {
@@ -20,5 +20,7 @@
     "pg": "^8.7.1",
     "pg-native": "^3.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
 }
