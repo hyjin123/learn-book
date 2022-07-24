@@ -3,6 +3,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./db");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
@@ -18,7 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(
+  "/api",
+  createProxyMiddleware({
+    target: "https://hoyeonjin-learnbook.herokuapp.com/",
+    changeOrigin: true,
+  })
+);
 const resourcesRouter = require("./routes/resources");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
