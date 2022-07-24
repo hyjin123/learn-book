@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+  // TEST
+  router.get("/test", function (req, res) {
+    res.json({ hello: "hello" });
+  });
   // retrieve all comments
   router.get("/", function (req, res) {
     const resourceId = req.query.resourceId;
