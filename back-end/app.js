@@ -13,6 +13,17 @@ const app = express();
 //   });
 // }
 
+const { createProxyMiddleware } = require("http-proxy-middleware");
+module.exports = function (app) {
+  app.use(
+    "/api",
+    createProxyMiddleware({
+      target: "https://hoyeonjin-learnbook.herokuapp.com",
+      changeOrigin: true,
+    })
+  );
+};
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
