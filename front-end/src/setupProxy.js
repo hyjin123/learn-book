@@ -7,7 +7,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "https://hoyeonjin-learnbook.herokuapp.com",
+      target: "http://hoyeonjin-learnbook.herokuapp.com",
       changeOrigin: true,
     })
   );
