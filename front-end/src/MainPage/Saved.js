@@ -10,7 +10,7 @@ const Saved = (props) => {
   // make a request to retrive all the saved resources for this user
   useEffect(() => {
     axios
-      .get("/resources/saved", {
+      .get("api/resources/saved", {
         params: {
           userInfo,
         },

@@ -32,13 +32,13 @@ const profileRouter = require("./routes/profile");
 const commentsRouter = require("./routes/comments");
 
 // Routes
-app.use("/resources", resourcesRouter(db));
-app.use("/login", loginRouter(db));
-app.use("/register", registerRouter(db));
-app.use("/topics", topicsRouter(db));
-app.use("/likes", likesRouter(db));
-app.use("/saves", savesRouter(db));
-app.use("/profile", profileRouter(db));
-app.use("/comments", commentsRouter(db));
+app.use("/api/resources", resourcesRouter(db));
+app.use("/api/login", loginRouter(db));
+app.use("api/register", registerRouter(db));
+app.use("api/topics", topicsRouter(db));
+app.use("api/likes", likesRouter(db));
+app.use("api/saves", savesRouter(db));
+app.use("api/profile", profileRouter(db));
+app.use("api/comments", commentsRouter(db));
 
 module.exports = app;

@@ -13,7 +13,7 @@ const AddButton = (props) => {
     const url = event.target.url.value;
     // make an axios request to add the new resource to the database
     axios
-      .post("/resources/add", {
+      .post("api/resources/add", {
         topicId,
         name,
         description,

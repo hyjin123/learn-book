@@ -15,7 +15,7 @@ const Login = (props) => {
     const password = event.target.password.value;
     //make an axios request to the backend to validate the login information
     axios
-      .post("/login", {
+      .post("api/login", {
         email,
         password,
       })

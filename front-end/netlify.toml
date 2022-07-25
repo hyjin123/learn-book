@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "/"
-  to = "https://hoyeonjin-learnbook.herokuapp.com"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}

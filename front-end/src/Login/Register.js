@@ -17,7 +17,7 @@ const Register = (props) => {
     const password = event.target.password.value;
     //make an axios request to the backend to save this value to the db
     axios
-      .post("/register", {
+      .post("api/register", {
         first_name,
         last_name,
         email,

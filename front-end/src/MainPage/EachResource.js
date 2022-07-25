@@ -37,19 +37,19 @@ const EachResource = (props) => {
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
     Promise.all([
-      axios.get("/likes", {
+      axios.get("api/likes", {
         params: {
           id,
           userId,
         },
       }),
-      axios.get("/saves", {
+      axios.get("api/saves", {
         params: {
           id,
           userId,
         },
       }),
-      axios.get("/likes/count", {
+      axios.get("api/likes/count", {
         params: {
           id,
         },
@@ -83,12 +83,12 @@ const EachResource = (props) => {
     setLike((current) => !current);
     // make an axios request to change likes (POST to /likes) and get likes count (GET to /likes.)
     Promise.all([
-      axios.post("/likes", {
+      axios.post("api/likes", {
         like,
         id,
         userId,
       }),
-      axios.get("/likes/count", {
+      axios.get("api/likes/count", {
         params: {
           id,
         },
@@ -107,7 +107,7 @@ const EachResource = (props) => {
     setSave((current) => !current);
     // make an axios request to change saves
     axios
-      .post("/saves", {
+      .post("api/saves", {
         save,
         id,
         userId,
@@ -124,7 +124,7 @@ const EachResource = (props) => {
     event.preventDefault();
     // make an axios request to delete the resource
     axios
-      .post("/resources/delete", {
+      .post("api/resources/delete", {
         id,
       })
       .then((res) => {

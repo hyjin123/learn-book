@@ -16,7 +16,7 @@ const Resources = (props) => {
   // make an axios request to retrive all resources for this particular topic
   useEffect(() => {
     axios
-      .get("/resources", {
+      .get("api/resources", {
         params: {
           topicId,
         },
@@ -32,7 +32,7 @@ const Resources = (props) => {
     event.preventDefault();
     // make an axios put request to delete the topic
     axios
-      .post("/topics/delete", {
+      .post("api/topics/delete", {
         userInfo,
         selectedTopic,
       })

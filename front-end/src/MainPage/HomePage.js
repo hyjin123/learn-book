@@ -21,7 +21,7 @@ const HomePage = (props) => {
   // retrive the topics for a specific user in the database
   useEffect(() => {
     axios
-      .get("/topics", {
+      .get("api/topics", {
         params: {
           userInfo,
         },
@@ -40,7 +40,7 @@ const HomePage = (props) => {
     const topicAdded = event.target.topic.value;
     // send an axios post request to input the new topic into the database
     axios
-      .post("/topics", {
+      .post("api/topics", {
         userInfo,
         topic: topicAdded,
       })

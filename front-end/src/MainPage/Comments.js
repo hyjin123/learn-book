@@ -41,7 +41,7 @@ const Comments = (props) => {
     console.log("addcomment", text, parentId);
     // make an axios request to save the comment to the database
     axios
-      .post("/comments", {
+      .post("api/comments", {
         text,
         parentId,
         resourceId,
@@ -64,7 +64,7 @@ const Comments = (props) => {
     setShow(true);
     // get all the comments from the backend when the comment button is clicked
     axios
-      .get("/comments", {
+      .get("api/comments", {
         params: {
           resourceId,
         },
@@ -80,7 +80,7 @@ const Comments = (props) => {
   const deleteComment = (commentId) => {
     // make a backend request to delete the comment from the database
     axios
-      .post("/comments/delete", {
+      .post("api/comments/delete", {
         commentId,
       })
       .then((res) => {
@@ -97,7 +97,7 @@ const Comments = (props) => {
   const updateComment = (text, commentId) => {
     // make a backend request to update the comment from the database
     axios
-      .post("/comments/update", {
+      .post("api/comments/update", {
         text,
         commentId,
       })

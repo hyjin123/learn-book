@@ -13,12 +13,12 @@ const Profile = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get("/profile", {
+      axios.get("api/profile", {
         params: {
           userInfo,
         },
       }),
-      axios.get("/topics", {
+      axios.get("api/topics", {
         params: {
           userInfo,
         },

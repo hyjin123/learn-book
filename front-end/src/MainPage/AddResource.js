@@ -27,7 +27,7 @@ const AddResource = (props) => {
   // retrive all topics for the user so they can choose where to add it to
   useEffect(() => {
     axios
-      .get("/topics", {
+      .get("api/topics", {
         params: {
           userInfo: userId,
         },
@@ -58,7 +58,7 @@ const AddResource = (props) => {
     const url = data.get("url");
     console.log(topicId, name, description, url);
     axios
-      .post("/resources/add", {
+      .post("api/resources/add", {
         topicId,
         name,
         description,
