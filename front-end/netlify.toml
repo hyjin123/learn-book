@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "/api/*"
-  to = "https://hoyeonjin-learnbook.herokuapp.com/:splat"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
