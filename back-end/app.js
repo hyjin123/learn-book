@@ -13,13 +13,13 @@ const app = express();
 //   });
 // }
 
-const proxy = require("http-proxy-middleware");
-module.exports = function (app) {
-  // add other server routes to path array
-  app.use(
-    proxy(["/api"], { target: "https://hoyeonjin-learnbook.herokuapp.com" })
-  );
-};
+// const proxy = require("http-proxy-middleware");
+// module.exports = function (app) {
+//   // add other server routes to path array
+//   app.use(
+//     proxy(["/api"], { target: "https://hoyeonjin-learnbook.herokuapp.com" })
+//   );
+// };
 
 app.use(logger("dev"));
 app.use(express.json());
