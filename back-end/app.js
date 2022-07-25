@@ -13,14 +13,11 @@ const app = express();
 //   });
 // }
 
-const { createProxyMiddleware } = require("http-proxy-middleware");
+const proxy = require("http-proxy-middleware");
 module.exports = function (app) {
+  // add other server routes to path array
   app.use(
-    "/api",
-    createProxyMiddleware({
-      target: "https://hoyeonjin-learnbook.herokuapp.com",
-      changeOrigin: true,
-    })
+    proxy(["/api"], { target: "https://hoyeonjin-learnbook.herokuapp.com" })
   );
 };
 
@@ -42,11 +39,11 @@ const commentsRouter = require("./routes/comments");
 // Routes
 app.use("/api/resources", resourcesRouter(db));
 app.use("/api/login", loginRouter(db));
-app.use("api/register", registerRouter(db));
-app.use("api/topics", topicsRouter(db));
-app.use("api/likes", likesRouter(db));
-app.use("api/saves", savesRouter(db));
-app.use("api/profile", profileRouter(db));
-app.use("api/comments", commentsRouter(db));
+app.use("/api/register", registerRouter(db));
+app.use("/api/topics", topicsRouter(db));
+app.use("/api/likes", likesRouter(db));
+app.use("/api/saves", savesRouter(db));
+app.use("/api/profile", profileRouter(db));
+app.use("/api/comments", commentsRouter(db));
 
 module.exports = app;
