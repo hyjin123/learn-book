@@ -6,6 +6,9 @@ const db = require("./db");
 
 const app = express();
 
+const cors = require("cors");
+app.use(cors());
+
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static("build"));
 //   app.get("*", (req, res) => {
