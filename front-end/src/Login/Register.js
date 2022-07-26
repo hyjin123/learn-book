@@ -17,23 +17,13 @@ const Register = (props) => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     //make an axios request to the backend to save this value to the db
-    axios
-      .post(
-        "https://hoyeonjin-learnbook.herokuapp.com/api/register",
-        {
-          first_name,
-          last_name,
-          email,
-          password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-          },
-        }
-      )
+    axios1
+      .post("api/register", {
+        first_name,
+        last_name,
+        email,
+        password,
+      })
       .then((res) => {
         console.log(res.data);
         // save the token to the local storage of the device
