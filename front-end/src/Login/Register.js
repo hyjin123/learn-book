@@ -17,8 +17,8 @@ const Register = (props) => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     //make an axios request to the backend to save this value to the db
-    axios1
-      .post("api/register", {
+    axios
+      .post("https://hoyeonjin-learnbook.herokuapp.com/api/register", {
         first_name,
         last_name,
         email,
