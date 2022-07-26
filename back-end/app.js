@@ -7,12 +7,22 @@ const cors = require("cors");
 
 const app = express();
 
+// app.use(
+//   cors({
+//     origin: "https://musical-kataifi-6a98b2.netlify.app/",
+//   })
+// );
+
+//enables cors
 app.use(
   cors({
-    origin: "https://musical-kataifi-6a98b2.netlify.app/",
+    allowedHeaders: ["sessionId", "Content-Type"],
+    exposedHeaders: ["sessionId"],
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
   })
 );
-
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   next();
