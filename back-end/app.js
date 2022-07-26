@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://hoyeonjin-learnbook.herokuapp.com/",
+    origin: "https://musical-kataifi-6a98b2.netlify.app/",
   })
 );
 
