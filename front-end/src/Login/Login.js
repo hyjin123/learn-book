@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
+import axios1 from "../axios";
 
 const Login = (props) => {
   // navigating between pages using react router
@@ -14,7 +15,7 @@ const Login = (props) => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     //make an axios request to the backend to validate the login information
-    axios
+    axios1
       .post("api/login", {
         email,
         password,
