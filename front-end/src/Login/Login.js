@@ -30,7 +30,7 @@ const Login = (props) => {
         // re-direct user to home once logged in
         navigate("/home");
       })
-      .catch((err) => console.log("this is an error man "));
+      .catch((err) => console.log(err));
   };
   return (
     <form className="form" onSubmit={onLogin}>
