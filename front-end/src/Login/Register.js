@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
+import axios1 from "../axios";
 
 const Register = (props) => {
   // navigating between pages using react router
@@ -16,7 +17,7 @@ const Register = (props) => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     //make an axios request to the backend to save this value to the db
-    axios
+    axios1
       .post("api/register", {
         first_name,
         last_name,
