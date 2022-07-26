@@ -18,12 +18,20 @@ const Register = (props) => {
     const password = event.target.password.value;
     //make an axios request to the backend to save this value to the db
     axios
-      .post("https://hoyeonjin-learnbook.herokuapp.com/api/register", {
-        first_name,
-        last_name,
-        email,
-        password,
-      })
+      .post(
+        "https://hoyeonjin-learnbook.herokuapp.com/api/register",
+        {
+          first_name,
+          last_name,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         // save the token to the local storage of the device
