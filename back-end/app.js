@@ -3,10 +3,10 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./db");
+const cors = require("cors");
 
 const app = express();
 
-const cors = require("cors");
 app.use(cors());
 
 // if (process.env.NODE_ENV === "production") {
