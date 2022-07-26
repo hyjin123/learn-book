@@ -13,10 +13,10 @@ const app = express();
 //   })
 // );
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 // app.use(function (req, res, next) {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,19 +29,19 @@ const app = express();
 //   next();
 // });
 
-app.all("*", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  if ("OPTIONS" == req.method) {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
+// app.all("*", function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+//   );
+//   res.header("Access-Control-Allow-Headers", "Content-Type");
+//   if ("OPTIONS" == req.method) {
+//     res.sendStatus(200);
+//   } else {
+//     next();
+//   }
+// });
 
 //Cors Configuration - Start
 // app.use((req, res, next) => {
