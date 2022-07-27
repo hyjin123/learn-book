@@ -7,7 +7,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.options("*", cors()); // include before other routes
+app.options("/api/register", cors()); // include before other routes
 
 // app.use(
 //   cors({
@@ -114,7 +114,7 @@ const commentsRouter = require("./routes/comments");
 // Routes
 app.use("/api/resources", resourcesRouter(db));
 app.use("/api/login", loginRouter(db));
-app.use("/api/register", registerRouter(db));
+app.use("/api/register", cors(), registerRouter(db));
 app.use("/api/topics", topicsRouter(db));
 app.use("/api/likes", likesRouter(db));
 app.use("/api/saves", savesRouter(db));
