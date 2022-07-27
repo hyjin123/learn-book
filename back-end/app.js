@@ -7,11 +7,11 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
 //enables cors
 // app.use(
@@ -81,6 +81,21 @@ app.use(
 //     proxy(["/api"], { target: "https://hoyeonjin-learnbook.herokuapp.com" })
 //   );
 // };
+
+const { createProxyMiddleware } = require("http-proxy-middleware");
+const express = require("express");
+
+const app = express();
+
+module.exports = function (app) {
+  app.use(
+    "/api",
+    createProxyMiddleware({
+      target: "https://hoyeonjin-learnbook.herokuapp.com",
+      changeOrigin: true,
+    })
+  );
+};
 
 app.use(logger("dev"));
 app.use(express.json());
