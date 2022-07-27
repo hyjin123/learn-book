@@ -7,6 +7,8 @@ const cors = require("cors");
 
 const app = express();
 
+app.options("*", cors()); // include before other routes
+
 // app.use(
 //   cors({
 //     origin: "*",
