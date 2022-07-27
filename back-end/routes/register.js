@@ -8,7 +8,9 @@ module.exports = (db) => {
     // insert the register data to the users table in the db
     const { first_name, last_name, email } = req.body;
     // hash the password
-    console.log(req.body.password);
+    console.log("first name", first_name);
+    console.log("email", email);
+    console.log("password", req.body.password);
     const password = bcrypt.hashSync(req.body.password, 10);
     // check if email already exists in the database, if so, can't register again
     db.query(`SELECT email FROM users;`)
