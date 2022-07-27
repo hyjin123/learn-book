@@ -6,6 +6,7 @@ const axios1 = axios.create({
     "Content-Type": "application/x-www-form-urlencoded",
     "Access-Control-Allow-Headers": "*",
     "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
   },
 });
 
