@@ -18,6 +18,7 @@ module.exports = (db) => {
   router.get("/saved", function (req, res) {
     // retrieve the user ID
     const userId = req.query.userInfo;
+    console.log("this is user id", userId);
     // query the saved resources for this particular user
     db.query(
       `SELECT resources.id, topic_id, resources.name, description, link, users.id AS userid, owner_id as ownerid, first_name, last_name FROM resources 

@@ -21,7 +21,7 @@ const Explore = (props) => {
   // send a request to the backend with the search value and return the filtered list
   useEffect(() => {
     axios1
-      .get("resources/search", {
+      .get("api/resources/search", {
         params: {
           search,
         },

@@ -8,6 +8,7 @@ const Saved = (props) => {
   const [saved, setSaved] = useState([]);
   // get the user ID and topic ID from the local storage
   const userInfo = parseFloat(localStorage.getItem("userinfo"));
+  console.log("this is user id from local storage", userInfo);
   // make a request to retrive all the saved resources for this user
   useEffect(() => {
     axios1
