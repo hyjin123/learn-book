@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
+import axios1 from "../axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import EachComment from "./EachComment";
@@ -40,7 +41,7 @@ const Comments = (props) => {
   const addComment = (text, parentId) => {
     console.log("addcomment", text, parentId);
     // make an axios request to save the comment to the database
-    axios
+    axios1
       .post("api/comments", {
         text,
         parentId,
@@ -63,7 +64,7 @@ const Comments = (props) => {
   const handleShow = () => {
     setShow(true);
     // get all the comments from the backend when the comment button is clicked
-    axios
+    axios1
       .get("api/comments", {
         params: {
           resourceId,
@@ -79,7 +80,7 @@ const Comments = (props) => {
   // deleting a comment
   const deleteComment = (commentId) => {
     // make a backend request to delete the comment from the database
-    axios
+    axios1
       .post("api/comments/delete", {
         commentId,
       })
@@ -96,7 +97,7 @@ const Comments = (props) => {
   // update a comment
   const updateComment = (text, commentId) => {
     // make a backend request to update the comment from the database
-    axios
+    axios1
       .post("api/comments/update", {
         text,
         commentId,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import axios1 from "../axios";
 import EachResource from "./EachResource";
 
 const Saved = (props) => {
@@ -9,7 +10,7 @@ const Saved = (props) => {
   const userInfo = parseFloat(localStorage.getItem("userinfo"));
   // make a request to retrive all the saved resources for this user
   useEffect(() => {
-    axios
+    axios1
       .get("api/resources/saved", {
         params: {
           userInfo,

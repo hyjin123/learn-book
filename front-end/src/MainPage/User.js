@@ -1,4 +1,5 @@
 import axios from "axios";
+import axios1 from "../axios";
 import React, { useState, useEffect } from "react";
 import { Outlet, useParams, useNavigate } from "react-router";
 import Topics from "./Topics";
@@ -22,12 +23,12 @@ const User = (props) => {
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
     Promise.all([
-      axios.get("api/topics", {
+      axios1.get("api/topics", {
         params: {
           userInfo: ownerId,
         },
       }),
-      axios.get("api/profile", {
+      axios1.get("api/profile", {
         params: {
           userInfo: ownerId,
         },

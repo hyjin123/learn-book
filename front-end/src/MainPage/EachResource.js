@@ -4,6 +4,7 @@ import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import DeleteResourceButton from "./DeleteResourceButton";
 import "./Resources.css";
 import axios from "axios";
+import axios1 from "../axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faBookmark } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -37,19 +38,19 @@ const EachResource = (props) => {
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
     Promise.all([
-      axios.get("api/likes", {
+      axios1.get("api/likes", {
         params: {
           id,
           userId,
         },
       }),
-      axios.get("api/saves", {
+      axios1.get("api/saves", {
         params: {
           id,
           userId,
         },
       }),
-      axios.get("api/likes/count", {
+      axios1.get("api/likes/count", {
         params: {
           id,
         },
@@ -83,12 +84,12 @@ const EachResource = (props) => {
     setLike((current) => !current);
     // make an axios request to change likes (POST to /likes) and get likes count (GET to /likes.)
     Promise.all([
-      axios.post("api/likes", {
+      axios1.post("api/likes", {
         like,
         id,
         userId,
       }),
-      axios.get("api/likes/count", {
+      axios1.get("api/likes/count", {
         params: {
           id,
         },
@@ -106,7 +107,7 @@ const EachResource = (props) => {
     // toggle between true and false to display different icon
     setSave((current) => !current);
     // make an axios request to change saves
-    axios
+    axios1
       .post("api/saves", {
         save,
         id,
@@ -123,7 +124,7 @@ const EachResource = (props) => {
   const onDeleteResource = (event) => {
     event.preventDefault();
     // make an axios request to delete the resource
-    axios
+    axios1
       .post("api/resources/delete", {
         id,
       })

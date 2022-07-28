@@ -1,4 +1,5 @@
 import axios from "axios";
+import axios1 from "../axios";
 import React from "react";
 import "./Button.css";
 
@@ -12,7 +13,7 @@ const AddButton = (props) => {
     const description = event.target.description.value;
     const url = event.target.url.value;
     // make an axios request to add the new resource to the database
-    axios
+    axios1
       .post("api/resources/add", {
         topicId,
         name,

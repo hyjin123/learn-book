@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import EachResource from "./EachResource";
 import "./Explore.css";
 import axios from "axios";
+import axios1 from "../axios";
 
 const Explore = (props) => {
   // state hook to keep track of the search bar
@@ -19,7 +20,7 @@ const Explore = (props) => {
 
   // send a request to the backend with the search value and return the filtered list
   useEffect(() => {
-    axios
+    axios1
       .get("resources/search", {
         params: {
           search,

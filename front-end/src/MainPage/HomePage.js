@@ -1,4 +1,5 @@
 import axios from "axios";
+import axios1 from "../axios";
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router";
 import Topics from "./Topics";
@@ -20,7 +21,7 @@ const HomePage = (props) => {
 
   // retrive the topics for a specific user in the database
   useEffect(() => {
-    axios
+    axios1
       .get("api/topics", {
         params: {
           userInfo,
@@ -39,7 +40,7 @@ const HomePage = (props) => {
     // save the topic
     const topicAdded = event.target.topic.value;
     // send an axios post request to input the new topic into the database
-    axios
+    axios1
       .post("api/topics", {
         userInfo,
         topic: topicAdded,

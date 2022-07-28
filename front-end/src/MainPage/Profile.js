@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import axios1 from "../axios";
 import Topics from "./Topics";
 import Avatar from "avataaars";
 import "./Profile.css";
@@ -13,12 +14,12 @@ const Profile = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get("api/profile", {
+      axios1.get("api/profile", {
         params: {
           userInfo,
         },
       }),
-      axios.get("api/topics", {
+      axios1.get("api/topics", {
         params: {
           userInfo,
         },

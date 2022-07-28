@@ -1,4 +1,5 @@
 import axios from "axios";
+import axios1 from "../axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useOutletContext } from "react-router";
 import AddButton from "./AddButton";
@@ -15,7 +16,7 @@ const Resources = (props) => {
   const topicId = parseFloat(localStorage.getItem("topic"));
   // make an axios request to retrive all resources for this particular topic
   useEffect(() => {
-    axios
+    axios1
       .get("api/resources", {
         params: {
           topicId,
@@ -31,7 +32,7 @@ const Resources = (props) => {
   const onDelete = (event) => {
     event.preventDefault();
     // make an axios put request to delete the topic
-    axios
+    axios1
       .post("api/topics/delete", {
         userInfo,
         selectedTopic,

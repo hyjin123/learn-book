@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import "./Explore.css";
 import axios from "axios";
+import axios1 from "../axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +27,7 @@ const AddResource = (props) => {
 
   // retrive all topics for the user so they can choose where to add it to
   useEffect(() => {
-    axios
+    axios1
       .get("api/topics", {
         params: {
           userInfo: userId,
@@ -57,7 +58,7 @@ const AddResource = (props) => {
     const description = data.get("description");
     const url = data.get("url");
     console.log(topicId, name, description, url);
-    axios
+    axios1
       .post("api/resources/add", {
         topicId,
         name,
