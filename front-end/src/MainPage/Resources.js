@@ -49,7 +49,6 @@ const Resources = (props) => {
     return (
       <EachResource
         key={resource.id}
-        ownerId={ownerId}
         topicId={resource.topic_id}
         userId={userInfo}
         id={resource.id}
