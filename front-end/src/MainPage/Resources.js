@@ -53,6 +53,9 @@ const Resources = (props) => {
         topicId={resource.topic_id}
         userId={userInfo}
         id={resource.id}
+        ownerFirstName={resource.first_name}
+        ownerLastName={resource.last_name}
+        ownerId={resource.ownerId}
         name={resource.name}
         description={resource.description}
         link={resource.link}

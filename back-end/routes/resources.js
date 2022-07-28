@@ -7,7 +7,13 @@ module.exports = (db) => {
     // retrieve the topic
     const topic = req.query.topicId;
     // query the topics for this particular user
-    db.query(`SELECT * FROM resources WHERE topic_id = $1;`, [topic])
+    db.query(
+      `SELECT resources.id AS id, topic_id, resources.name AS name, description, link, first_name, last_name, users.id AS ownerId FROM resources 
+    JOIN topics ON topics.id = topic_id
+    JOIN users ON users.id = user_id
+    WHERE topic_id = $1;`,
+      [topic]
+    )
       .then((data) => {
         const resources = data.rows;
         res.json({ resources });
@@ -18,7 +24,6 @@ module.exports = (db) => {
   router.get("/saved", function (req, res) {
     // retrieve the user ID
     const userId = req.query.userInfo;
-    console.log("this is user id", userId);
     // query the saved resources for this particular user
     db.query(
       `SELECT resources.id, topic_id, resources.name, description, link, users.id AS userid, owner_id as ownerid, first_name, last_name FROM resources 
