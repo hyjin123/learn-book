@@ -8,7 +8,6 @@ const cors = require("cors");
 const app = express();
 
 // app.options("/api/register", cors());
-// app.options("/api/register", cors());
 // include before other routes
 
 app.use(
