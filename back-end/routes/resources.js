@@ -8,7 +8,7 @@ module.exports = (db) => {
     const topic = req.query.topicId;
     // query the topics for this particular user
     db.query(
-      `SELECT resources.id AS id, topic_id, resources.name AS name, description, link, first_name, last_name, users.id AS ownerId FROM resources 
+      `SELECT resources.id AS id, topic_id, resources.name AS name, description, link, first_name, last_name, users.id AS ownerid FROM resources 
     JOIN topics ON topics.id = topic_id
     JOIN users ON users.id = user_id
     WHERE topic_id = $1;`,

@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// used in production
 const axios1 = axios.create({
-  baseURL: "https://hoyeonjin-learnbook.herokuapp.com/",
+  baseURL: "https://localhost:3002/",
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Headers": "*",
@@ -10,5 +11,10 @@ const axios1 = axios.create({
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
   },
 });
+
+// used in development
+// const axios1 = axios.create({
+//   baseURL: "http://localhost:3002",
+// });
 
 export default axios1;

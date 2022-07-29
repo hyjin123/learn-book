@@ -24,6 +24,7 @@ module.exports = (db) => {
     const resourceId = req.body.id;
     const userId = req.body.userId;
     const ownerId = req.body.ownerId;
+    console.log(ownerId);
     // based on the condition of whether it was saved or not, make changes to the database
     if (save) {
       db.query(
