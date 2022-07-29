@@ -6,10 +6,10 @@ const jwt = require("jsonwebtoken");
 module.exports = (db) => {
   router.post("/", function (req, res) {
     // save the login info
-    const email = req.body.email;
+    const emailEntered = req.body.email;
     const password1 = req.body.password;
     // check db to compare the email and password
-    db.query(`SELECT * FROM users WHERE email = $1;`, [email])
+    db.query(`SELECT * FROM users WHERE email = $1;`, [emailEntered])
       .then((data) => {
         console.log(data);
         const email = data.rows[0].email;
