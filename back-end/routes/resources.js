@@ -64,6 +64,7 @@ module.exports = (db) => {
     const name = req.body.name;
     const description = req.body.description;
     const url = req.body.url;
+    console.log("this is it", req.body);
     // insert the resource into the table
     db.query(
       `INSERT INTO resources (topic_id, name, description, link)
@@ -89,5 +90,32 @@ module.exports = (db) => {
       })
       .catch((err) => console.log(err));
   });
+
+  // edit a resource
+  router.post("/edit", function (req, res) {
+    // retrieve the user id
+    const topic = req.body.topicId;
+    const name = req.body.name;
+    const description = req.body.description;
+    const url = req.body.url;
+    const resourceId = req.body.resourceId;
+    // edit the resource in the table
+    db.query(
+      `UPDATE resources 
+      SET topic_id = $1,
+          name = $2,
+          description = $3,
+          link = $4
+          WHERE resources.id = $5
+          RETURNING id;`,
+      [topic, name, description, url, resourceId]
+    )
+      .then((data) => {
+        const resource = data.rows[0];
+        res.json({ resource });
+      })
+      .catch((err) => console.log(err));
+  });
+
   return router;
 };

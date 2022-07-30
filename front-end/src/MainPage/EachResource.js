@@ -196,13 +196,32 @@ const EachResource = (props) => {
               onClick={onSave}
             />
           )}
-          <AddResource userId={userId} link={link} />
+          <AddResource
+            add={true}
+            name={name}
+            description={description}
+            userId={userId}
+            link={link}
+            topicId={topicId}
+          />
           <Comments resourceId={id} userId={userId} />
         </div>
       </div>
       <div className="edit-delete-container">
         {canEditDelete ? (
-          <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
+          <>
+            <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
+            <AddResource
+              userId={userId}
+              edit={true}
+              id={id}
+              name={name}
+              description={description}
+              link={link}
+              topicId={topicId}
+              resourceId={id}
+            />
+          </>
         ) : (
           ""
         )}

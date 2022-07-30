@@ -39,10 +39,10 @@ const Explore = (props) => {
         key={resource.id}
         topicId={resource.topic_id}
         userId={userInfo}
-        ownerId={resource.userid}
+        id={resource.id}
         ownerFirstName={resource.first_name}
         ownerLastName={resource.last_name}
-        id={resource.id}
+        ownerId={resource.userid}
         name={resource.name}
         description={resource.description}
         link={resource.link}

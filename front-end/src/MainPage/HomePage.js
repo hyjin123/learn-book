@@ -50,7 +50,7 @@ const HomePage = (props) => {
     // refreshes the page whenever user inputs new topic, so that the list is updated
     window.location.reload(false);
   };
-  console.log(selectedTopic);
+
   // map through the topics and display a well formatted component for each of them
   const formattedTopics = topics.map((topic) => {
     return (

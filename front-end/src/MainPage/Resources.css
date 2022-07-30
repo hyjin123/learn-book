@@ -25,7 +25,7 @@ body {
 }
 
 .resource-delete-button {
-  margin: 0 15px;
+  margin: 0 5px;
 }
 
 .each-resource-section {
@@ -42,7 +42,7 @@ body {
 }
 
 .resource-delete-button {
-  width: 50%;
+  width: 25%;
   margin-top: 10px;
 }
 
@@ -61,6 +61,7 @@ body {
 }
 
 .user {
+  align-self: end;
   color: #196f8a;
   margin-bottom: 5px;
   margin-top: 5px;
@@ -88,4 +89,6 @@ body {
 
 .edit-delete-container {
   margin-bottom: 40px;
+  display: flex;
+  justify-content: end;
 }

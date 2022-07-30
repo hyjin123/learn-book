@@ -20,7 +20,7 @@ const DeleteResourceButton = (props) => {
         variant="primary"
         onClick={handleShow}
       >
-        Delete Resource
+        Delete
       </Button>
 
       <Modal show={show} onHide={handleClose}>
