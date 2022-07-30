@@ -29,7 +29,7 @@ body {
 }
 
 .each-resource-section {
-  margin: 60px 0;
+  margin: 80px 0 0 0;
   word-break: break-all;
   display: flex;
   flex-direction: column;
@@ -79,4 +79,13 @@ body {
 .resource-description {
   margin: 5px 0 10px 0;
   font-size: 0.9em;
+}
+
+.resource-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-delete-container {
+  margin-bottom: 40px;
 }

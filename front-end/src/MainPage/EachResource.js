@@ -21,6 +21,7 @@ const EachResource = (props) => {
   const [likeCount, setLikeCount] = useState(0);
 
   const navigate = useNavigate();
+  const userInfo = parseFloat(localStorage.getItem("userinfo"));
 
   //  destructure props
   const {
@@ -34,6 +35,9 @@ const EachResource = (props) => {
     description,
     link,
   } = props;
+
+  // boolean to determine if the resource is theirs, if so, they can delete and edit the resource
+  const canEditDelete = userInfo === ownerId;
 
   // check if the resource is already liked by this user or not. Set the like to true if it is or false if it isnt
   useEffect(() => {
@@ -144,61 +148,65 @@ const EachResource = (props) => {
   };
 
   return (
-    <div className="each-resource-section">
-      <div className="resource-name">{name}</div>
-      <div className="resource-description">{description}</div>
-      <div className="resource-preview">
-        <LinkPreview
-          url={link}
-          backgroundColor="#FCF8E5"
-          borderColor="black"
-          descriptionLength="100"
-          height="500px"
-          width="400px"
-          borderRadius="15px"
-        />
-      </div>
-      {ownerFirstName && (
-        <div className="user" onClick={userClick}>
-          {ownerFirstName} {ownerLastName}
+    <div className="resource-container">
+      <div className="each-resource-section">
+        <div className="resource-name">{name}</div>
+        <div className="resource-description">{description}</div>
+        <div className="resource-preview">
+          <LinkPreview
+            url={link}
+            backgroundColor="#FCF8E5"
+            borderColor="black"
+            descriptionLength="100"
+            height="500px"
+            width="400px"
+            borderRadius="15px"
+          />
         </div>
-      )}
-      <div className="icons">
-        {likeCount}
-        {!like ? (
-          <FontAwesomeIcon
-            className="icon"
-            icon={faThumbsUp}
-            onClick={onLike}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className="icon"
-            icon={faSolidThumbsUp}
-            onClick={onLike}
-          />
+        {ownerFirstName && (
+          <div className="user" onClick={userClick}>
+            {ownerFirstName} {ownerLastName}
+          </div>
         )}
-        {!save ? (
-          <FontAwesomeIcon
-            className="icon"
-            icon={faBookmark}
-            onClick={onSave}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className="icon"
-            icon={faSolidBookmark}
-            onClick={onSave}
-          />
-        )}
-        <AddResource userId={userId} link={link} />
-        <Comments resourceId={id} userId={userId} />
+        <div className="icons">
+          {likeCount}
+          {!like ? (
+            <FontAwesomeIcon
+              className="icon"
+              icon={faThumbsUp}
+              onClick={onLike}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="icon"
+              icon={faSolidThumbsUp}
+              onClick={onLike}
+            />
+          )}
+          {!save ? (
+            <FontAwesomeIcon
+              className="icon"
+              icon={faBookmark}
+              onClick={onSave}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="icon"
+              icon={faSolidBookmark}
+              onClick={onSave}
+            />
+          )}
+          <AddResource userId={userId} link={link} />
+          <Comments resourceId={id} userId={userId} />
+        </div>
       </div>
-      {ownerId ? (
-        ""
-      ) : (
-        <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
-      )}
+      <div className="edit-delete-container">
+        {canEditDelete ? (
+          <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };
