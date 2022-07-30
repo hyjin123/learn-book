@@ -161,6 +161,7 @@ const EachResource = (props) => {
             height="500px"
             width="400px"
             borderRadius="15px"
+            className="review-preview-box"
           />
         </div>
         {ownerFirstName && (

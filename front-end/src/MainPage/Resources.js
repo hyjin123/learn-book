@@ -54,7 +54,7 @@ const Resources = (props) => {
         id={resource.id}
         ownerFirstName={resource.first_name}
         ownerLastName={resource.last_name}
-        ownerId={resource.ownerid}
+        ownerId={resource.userid}
         name={resource.name}
         description={resource.description}
         link={resource.link}

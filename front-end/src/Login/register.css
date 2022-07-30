@@ -5,3 +5,13 @@
   padding: 0 40%;
   padding-top: 5%;
 }
+
+@media (max-width: 400px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    padding-top: 5%;
+  }
+}

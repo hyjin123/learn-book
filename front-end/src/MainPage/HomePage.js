@@ -12,6 +12,9 @@ const HomePage = (props) => {
   // Hook used to save the value typed in the add new topic field
   const [topic, setTopic] = useState("");
 
+  // set ownerId to false
+  const ownerId = false;
+
   // destructure props
   const { token } = props;
   // get the user ID from the local storage
@@ -89,7 +92,7 @@ const HomePage = (props) => {
           </div>
         </form>
       </div>
-      <Outlet context={[selectedTopic]} />
+      <Outlet context={[selectedTopic, ownerId]} />
     </div>
   );
 };

@@ -92,3 +92,23 @@ body {
   display: flex;
   justify-content: end;
 }
+
+.resource-preview-box {
+  height: 500px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+@media (max-width: 400px) {
+  .Container {
+    height: 500px !important;
+    width: 300px !important;
+    border-radius: 15px;
+  }
+
+  .each-resource-section {
+    width: 100%;
+    align-self: center;
+    margin: 10px 0 0 0;
+  }
+}
