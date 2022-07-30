@@ -10,7 +10,7 @@ const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PAS
 //   connectionString: connectionString || process.env.DATABASE_URL,
 // });
 
-used in production;
+// used in production;
 const client = new pg.Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
