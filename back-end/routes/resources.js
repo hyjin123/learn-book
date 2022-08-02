@@ -64,7 +64,7 @@ module.exports = (db) => {
     const name = req.body.name;
     const description = req.body.description;
     const url = req.body.url;
-    console.log("this is it", req.body);
+    console.log("this is it, no?!?!", req.body, req.body.add);
     // insert the resource into the table
     db.query(
       `INSERT INTO resources (topic_id, name, description, link)

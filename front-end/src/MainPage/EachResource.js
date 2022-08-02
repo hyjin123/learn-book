@@ -214,7 +214,7 @@ const EachResource = (props) => {
             <DeleteResourceButton id={id} onDeleteResource={onDeleteResource} />
             <AddResource
               userId={userId}
-              edit={true}
+              add={false}
               id={id}
               name={name}
               description={description}

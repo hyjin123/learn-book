@@ -20,6 +20,14 @@ body {
   justify-content: center;
 }
 
+.resource-topic-button {
+  margin-right: 10px;
+}
+
+.resource-add-button {
+  margin-right: 10px;
+}
+
 .resource-add-button {
   margin: 0 15px;
 }

@@ -52,5 +52,5 @@
   "devDependencies": {
     "http-proxy-middleware": "^2.0.6"
   },
-  "proxy": "https://hoyeonjin-learnbook.herokuapp.com/"
+  "proxy": "http://localhost:3002"
 }

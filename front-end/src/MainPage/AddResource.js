@@ -12,7 +12,6 @@ const AddResource = ({
   userId,
   link,
   add,
-  edit,
   topicId,
   name,
   description,
@@ -26,7 +25,7 @@ const AddResource = ({
   const [inputName, setInputName] = useState(name);
   const [inputDescription, setInputDescription] = useState(description);
 
-  console.log(userId, link, add, edit, topicId, name, description, resourceId);
+  console.log(userId, link, add, topicId, name, description, resourceId);
 
   const handleClose = () => {
     setShow(false);
@@ -74,20 +73,20 @@ const AddResource = ({
       const name = inputName;
       const description = inputDescription;
       const url = data.get("url");
-      console.log(name, description, url);
       axios1
         .post("api/resources/add", {
           topicId,
           name,
           description,
           url,
+          add,
         })
         .then((res) => {
           // show confirmation that the resource has been added once it's successful in the backend
           setConfirm(true);
         })
         .catch((err) => console.log(err));
-    } else if (edit) {
+    } else {
       // when user edits a resource
       const data = new FormData(event.currentTarget);
       // save all the data
@@ -102,6 +101,7 @@ const AddResource = ({
           description,
           url,
           resourceId,
+          add,
         })
         .then((res) => {
           // show confirmation that the resource has been edited once it's successful in the backend
