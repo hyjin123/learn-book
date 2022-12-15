@@ -17,6 +17,7 @@ const EachResource = (props) => {
   const [like, setLike] = useState(false);
   const [save, setSave] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [urlData, setUrlData] = useState(null);
 
   const navigate = useNavigate();
   const userInfo = parseFloat(localStorage.getItem("userinfo"));
@@ -85,7 +86,7 @@ const EachResource = (props) => {
         },
       })
       .then((res) => {
-        console.log("this is open graph data", res);
+        setUrlData(res.data.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -163,6 +164,9 @@ const EachResource = (props) => {
         <div className="resource-description">{description}</div>
         <div className="resource-preview">
           {/* <MyCustomCard url={link} contrast size="large" /> */}
+          <div>{urlData?.title}</div>
+          <div>{urlData?.description}</div>
+          <img className="url-image" src={urlData.image} />
         </div>
         {ownerFirstName && (
           <div className="user" onClick={userClick}>

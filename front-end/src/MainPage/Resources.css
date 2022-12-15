@@ -101,11 +101,10 @@ body {
   justify-content: end;
 }
 
-/* :root {
-  --microlink-hover-background-color: red;
-  --microlink-width: 300px;
-  --microlink-color: #181918;
-} */
+.url-image {
+  width: 100%;
+  height: 60%;
+}
 
 div.microlink_card__iframe {
   width: 200px;

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ogs = require("open-graph-scraper");
+const getMetaData = require("metadata-scraper");
 
 module.exports = (db) => {
   // get all resources for a topic
@@ -61,14 +61,10 @@ module.exports = (db) => {
   router.get("/opengraph", function (req, res) {
     const url = req.query.url;
 
-    const options = { url: `${url}/` };
-
-    ogs(options)
+    getMetaData(url)
       .then((data) => {
-        const { error, result, response } = data;
-        console.log("error:", error); // This returns true or false. True if there was an error. The error itself is inside the results object.
-        console.log("result:", result); // This contains all of the Open Graph results
-        console.log("response:", response); // This contains the HTML of page
+        console.log(data);
+        res.json({ data });
       })
       .catch((err) => console.log(err));
   });
