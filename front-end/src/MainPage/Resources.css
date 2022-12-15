@@ -101,10 +101,19 @@ body {
   justify-content: end;
 }
 
-.resource-preview-box {
-  height: 500px;
+/* :root {
+  --microlink-hover-background-color: red;
+  --microlink-width: 300px;
+  --microlink-color: #181918;
+} */
+
+div.microlink_card__iframe {
+  width: 200px;
+}
+
+.resource-preview {
   width: 400px;
-  border-radius: 15px;
+  height: 400px;
 }
 
 @media (max-width: 400px) {

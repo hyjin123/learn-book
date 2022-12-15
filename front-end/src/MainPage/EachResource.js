@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import DeleteResourceButton from "./DeleteResourceButton";
 import "./Resources.css";
-import axios from "axios";
 import axios1 from "../axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -77,6 +75,17 @@ const EachResource = (props) => {
         } else {
           setSave(false);
         }
+      })
+      .catch((err) => console.log(err));
+
+    axios1
+      .get("api/resources/opengraph", {
+        params: {
+          url: link,
+        },
+      })
+      .then((res) => {
+        console.log("this is open graph data", res);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -153,16 +162,7 @@ const EachResource = (props) => {
         <div className="resource-name">{name}</div>
         <div className="resource-description">{description}</div>
         <div className="resource-preview">
-          <LinkPreview
-            url={link}
-            backgroundColor="#FCF8E5"
-            borderColor="black"
-            descriptionLength="100"
-            height="500px"
-            width="400px"
-            borderRadius="15px"
-            className="review-preview-box"
-          />
+          {/* <MyCustomCard url={link} contrast size="large" /> */}
         </div>
         {ownerFirstName && (
           <div className="user" onClick={userClick}>

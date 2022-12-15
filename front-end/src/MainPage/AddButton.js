@@ -39,10 +39,10 @@ const AddButton = (props) => {
       })
       .then((res) => {
         console.log(res.data);
-        // refreshes the page whenever user adds a new resource, so that the list is updated
-        // window.location.reload(false);
         // show confirmation that the resource has been added once it's successful in the backend
         setConfirm(true);
+        // refreshes the page whenever user adds a new resource, so that the list is updated
+        window.location.reload(false);
       })
       .catch((err) => console.log(err));
   };

@@ -19,8 +19,10 @@
     "express-http-proxy": "^1.6.3",
     "http-proxy-middleware": "^2.0.6",
     "jsonwebtoken": "^8.5.1",
+    "metadata-scraper": "^0.2.61",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15",
+    "open-graph-scraper": "^5.0.2",
     "pg": "^8.7.1",
     "pg-native": "^3.0.0"
   },

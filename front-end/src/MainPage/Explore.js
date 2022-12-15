@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import EachResource from "./EachResource";
 import "./Explore.css";
-import axios from "axios";
 import axios1 from "../axios";
 
 const Explore = (props) => {
@@ -32,6 +31,7 @@ const Explore = (props) => {
       .catch((err) => console.log(err));
   }, [search]);
 
+  console.log(search);
   // make the list of all the resources, map through them and display EachResource component for each resource
   const resourceList = searched.map((resource) => {
     return (
