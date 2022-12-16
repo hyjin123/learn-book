@@ -157,17 +157,27 @@ const EachResource = (props) => {
     navigate(`/user/${ownerId}`);
   };
 
+  // when a user clicks on the resource
+  const handleClick = () => {};
+
   return (
-    <div className="resource-container">
-      <div className="each-resource-section">
-        <div className="resource-name">{name}</div>
-        <div className="resource-description">{description}</div>
-        <div className="resource-preview">
-          {/* <MyCustomCard url={link} contrast size="large" /> */}
-          <div>{urlData?.title}</div>
-          <div>{urlData?.description}</div>
-          <img className="url-image" src={urlData.image} />
+    <div>
+      <div
+        className="each-resource-section"
+        onClick={() => window.open(link, "_blank")}
+      >
+        <div className="resource-header">
+          <div className="resource-name">{name}</div>
+          <div className="resource-description">{description}</div>
         </div>
+
+        <div className="resource-preview">
+          <img className="url-image" src={urlData?.image} />
+          <div className="url-title">{urlData?.title}</div>
+          <div className="url-description">{urlData?.description}</div>
+        </div>
+      </div>
+      <div className="icons-container">
         {ownerFirstName && (
           <div className="user" onClick={userClick}>
             {ownerFirstName} {ownerLastName}
