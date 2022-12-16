@@ -1,52 +1,64 @@
-# Welcome to Life-Booster!
+# Welcome to Learn-Book!
 
 ## Description
 
-Learn-book is a full-stack application that allows users to create a to-do list for each day whether it would be today or tuesday next week. It provides an efficient way for the users to organize their day to day allowing them to be more productive.
+Learn-Book is a full-stack application where users can save all their resources in a single central place for easy and efficient access. It is also a social media platform where users can interact with each other.
 
 ## Features
 
 - Users can register and log in using their email.
-- Users can view a full calendar on the main page.
-- Users can choose a date and view the to-do list for that specific day.
-- Users can see all, uncompleted, in-progress, and completed tasks for that day.
-- Users can add tasks.
-- Users can edit tasks such as the date, details, and status (eg. uncompleted to completed).
-- Users can delete tasks.
-- Users can mark a task as high priority.
-- Users can see all tasks based on their status (not just for 1 specific day but for all days).
+- Users can add topics and resources within a selected topic (resources can be any url like youtube links or article links).
+- Users can view all their topics. If they click on a topic, they can also view all the resources tied to that topic.
+- Users edit and delete a resource.
+- Users can view other user's resources in the explore page (there is also a search functionality).
+- Users can perform tasks on each resource such as like, save, add as your own resource and comment.
+- In the comment page, users can comment or reply to other comments. Users can also edit their comment (5 minute limit) or delete their comment.
+- Users can view all their saved resources in the saved page.
+- Users can click on other people's profile and view their topics and resources.
 
 ## The App
 
 ### Home Pages
 
-Users can view a caldenar and choose which day they would like to create a to-do list.
+Users can view their own topics and resources in the home page.
 
-!["Home Page"](https://github.com/hyjin123/life-booster/blob/master/frontend/docs/Home.png?raw=true)
+!["Home Page"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Home.png?raw=true)
 
-### Add tasks
+### Add, Edit, or Delete
 
-Users can add tasks for each day.
+Users can add, edit or delete their own resources.
 
-!["Add"](https://github.com/hyjin123/life-booster/blob/master/frontend/docs/add-task.png?raw=true)
+!["Add"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Edit.png?raw=true)
 
-### View tasks
+### Explore
 
-Users can view all tasks or tasks based on status for each day.
+Users can view other people's resources via explore page. Users can also search based on their interest.
 
-!["View all task"](https://github.com/hyjin123/life-booster/blob/master/frontend/docs/all-task.png?raw=true)
+!["Explore"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Explore.png?raw=true)
 
-### Edit and delete tasks
+### Like, Save, or Comment
 
-You can edit and delete tasks.
+Users can like, save, or comment on other people's resources (you can also add the resource on your own page).
 
-!["edit"](https://github.com/hyjin123/life-booster/blob/master/frontend/docs/Edit.png?raw=true)
+!["Like"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Save-Like.png?raw=true)
 
-### View tasks for all days
+### Comment
 
-Users can view tasks based on status for all days (not just each day)
+In the comment section, users can comment or reply to a comment. Users can also edit or delete their own comments.
 
-!["View tasks based on status"](https://github.com/hyjin123/life-booster/blob/master/frontend/docs/completed-task.png?raw=true)
+!["Comment"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Comments.png?raw=true)
+
+### Saved
+
+Users can view all their saved resources in the saved page.
+
+!["Saved"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Saved.png?raw=true)
+
+### Profile
+
+Users can view other people's profile.
+
+!["Comment"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Comments.png?raw=true)
 
 ## Getting Started
 
