@@ -58,7 +58,7 @@ Users can view all their saved resources in the saved page.
 
 Users can view other people's profile.
 
-!["Comment"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Comments.png?raw=true)
+!["Profile"](https://github.com/hyjin123/learn-book/blob/master/front-end/docs/Profile.png?raw=true)
 
 ## Getting Started
 
