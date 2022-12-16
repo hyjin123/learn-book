@@ -2,7 +2,7 @@
 
 ## Description
 
-Life-Booster is a full-stack application that allows users to create a to-do list for each day whether it would be today or tuesday next week. It provides an efficient way for the users to organize their day to day allowing them to be more productive.
+Learn-book is a full-stack application that allows users to create a to-do list for each day whether it would be today or tuesday next week. It provides an efficient way for the users to organize their day to day allowing them to be more productive.
 
 ## Features
 
@@ -18,7 +18,7 @@ Life-Booster is a full-stack application that allows users to create a to-do lis
 
 ## The App
 
-### Home Page
+### Home Pages
 
 Users can view a caldenar and choose which day they would like to create a to-do list.
 
@@ -51,12 +51,12 @@ Users can view tasks based on status for all days (not just each day)
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the npm install in the frontend directory and backend directory.
+2. Install dependencies using the npm install in the front-end directory and back-end directory.
 3. Start postgresql using psql.
-4. Create a database in your host machine called "life-booster" with user "labber" and password "labber" on port 5432
-5. Seed the database in the backend directory with npm run db:reset and npm run seed.
-6. Start the web server using the npm start command in the frontend directory. The app will be served at http://localhost:3000/.
-7. Start the backend server using the npm run dev command in the backend directory. The app will be served at http://localhost:3001/.
+4. Create a database in your host machine called "learn-book" with user "labber" and password "labber" on port 5432
+5. Seed the database in the back-end directory with npm run db:reset and npm run seed.
+6. Start the web server using the npm start command in the front-end directory. The app will be served at http://localhost:3000/.
+7. Start the back-end server using the npm run dev command in the back-end directory. The app will be served at http://localhost:3001/.
 
 ## Stack Choices
 
