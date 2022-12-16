@@ -157,9 +157,6 @@ const EachResource = (props) => {
     navigate(`/user/${ownerId}`);
   };
 
-  // when a user clicks on the resource
-  const handleClick = () => {};
-
   return (
     <div>
       <div
@@ -173,8 +170,15 @@ const EachResource = (props) => {
 
         <div className="resource-preview">
           <img className="url-image" src={urlData?.image} />
-          <div className="url-title">{urlData?.title}</div>
+          {urlData?.title.length < 120 ? (
+            <div className="url-title">{urlData?.title}</div>
+          ) : (
+            <div className="url-title">{urlData?.title.slice(0, 120)}...</div>
+          )}
           <div className="url-description">{urlData?.description}</div>
+          <div>
+            <img className="url-icon" src={urlData?.icon} />
+          </div>
         </div>
       </div>
       <div className="icons-container">

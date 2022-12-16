@@ -125,20 +125,29 @@ body {
 }
 
 .url-title {
-  padding: 5px;
+  padding: 8px;
   font-weight: 600;
 }
 
 .url-description {
-  padding: 5px;
+  padding: 2px 8px;
   font-weight: 400;
   font-size: 0.8em;
 }
 
+.url-icon {
+  width: 6%;
+  height: 6%;
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+}
+
 .resource-preview {
   width: 500px;
-  height: 400px;
+  height: 450px;
   border-radius: 20px;
+  position: relative;
 }
 
 @media (max-width: 400px) {
